@@ -166,6 +166,28 @@ overflow: hidden;
   opacity: 90%;;
  }
   
+ .signup_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1429&q=80");
+  background-size: cover;
+  height: 100vh;
+  justify-content: center;
+
+  }
+   
+ .signup_form{
+  width: 30%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray; 
+  opacity: 90%;;
+ }
+  
  .login-container {
   display: flex;
   flex-direction: column;

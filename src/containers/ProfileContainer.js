@@ -37,31 +37,42 @@ class ProfileContainer extends React.Component {
 
             case "Favorite":
                 return(
-
-                    <React.Fragment>
-                                <ProfleSideBar setActive={this.setActive}/>
-                                <FavoritesPage/> 
-                    </React.Fragment>
+                         <Grid>
+                            <Grid.Column width={2}>
+                            <ProfleSideBar setActive={this.setActive}/>
+                            </Grid.Column>
+                            <Grid.Column width={14}>
+                            <FavoritesPage/> 
+                            </Grid.Column>
+                        </Grid>         
                 )
                 break;
 
             case "View/Edit Profile":
                 return(
-                    <React.Fragment>
-                        <ProfleSideBar setActive={this.setActive}/>
-                        <ProfilePage/>
-                    </React.Fragment>
+                        <Grid>
+                            <Grid.Column width={2}>
+                            <ProfleSideBar setActive={this.setActive}/>
+                            </Grid.Column>
+                            <Grid.Column width={14}>
+                            <ProfilePage/> 
+                            </Grid.Column>
+                        </Grid>         
+                     
                 )
                 break;
 
             case "Past Orders":
                     
                 return(
-                    
-                    <React.Fragment>
+                    <Grid>
+                        <Grid.Column width={2}>
                         <ProfleSideBar setActive={this.setActive}/>
+                        </Grid.Column>
+                        <Grid.Column width={14}>
                         {this.renderPastOrders()}
-                    </React.Fragment>
+                        </Grid.Column>
+                </Grid>         
                 )
                 break;
         

@@ -80,8 +80,7 @@ class SignUp extends React.Component {
         return (
 
             <div className="signup_container">
-
-                <div className="signup_form ">
+                <div className="signup_form">
                 <Form onSubmit={this.submitHandler}>
                 <Form.Group widths='equal'>
                 
@@ -166,8 +165,10 @@ class SignUp extends React.Component {
                     }
 
                 </div>
+
           </div>
 
+ 
         )
     }
 }
