@@ -1,6 +1,6 @@
 import React from 'react';
 import  { Link } from "react-router-dom"
-import { Card, Icon, Image, Button, Menu, Input } from 'semantic-ui-react'
+import {  Menu, Header} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 
@@ -8,14 +8,22 @@ import { connect } from 'react-redux'
 function Navbar (props) {
 
       return (
-                <Menu secondary>
+                <Menu secondary  size='huge'>
                     <Menu.Item
                         as={ Link } name='Noodums' to='/'>
                        <img src='./img/Logo.png'/>    
                     </Menu.Item>
 
                     <Menu.Item
+                        name="Noodums">    
+                    </Menu.Item>
+
+                    <Menu.Item
                         as={ Link } name='Menu' to='/menu'>    
+                    </Menu.Item>
+
+                    <Menu.Item
+                        as={ Link } name='Our Story' to='/our_story'>    
                     </Menu.Item>
                
                      {props.user_id !== 1? 
@@ -26,7 +34,8 @@ function Navbar (props) {
                             />
                         </React.Fragment>
                         : null }
-                
+
+
                 <Menu.Menu position='right'>
 
                 <Menu.Item 

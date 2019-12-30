@@ -5,7 +5,7 @@ import Navbar from "../components/NavBar"
 import MenuCardFront from '../components/MenuCardFront';
 import MenuContainer from './MenuContainer';
 import MenuPage from './MenuPage';
-import ShoppingCartContainerJS from './ShoppingCartContainer';
+import ShoppingCartContainer from './ShoppingCartContainer';
 import Order from '../components/Order';
 import CheckoutForm from '../components/CheckoutForm';
 import ProfileContainer from './ProfileContainer';
@@ -64,7 +64,7 @@ renderSignup = () => {
 renderCart = () => {
     return (
         <React.Fragment>
-            <ShoppingCartContainerJS/>
+            <ShoppingCartContainer/>
        </React.Fragment>
     )
 }
@@ -94,17 +94,13 @@ renderMenu = () => {
     )
 }
 
-
-
-
-
 ///-----------------------Routes--------------------------------------///
     render() {
         return (
             this.state.isLoading? 
             <div> Website is loading......</div>
             : 
-            <div className="main-container">
+            <div >
                 <Switch>
                  <Route  path="/login" render={this.renderLogin}/>
                  <Route  path="/menu" render={this.renderMenu}/>
@@ -114,9 +110,6 @@ renderMenu = () => {
                  <Route  path="/checkout" render={this.renderCheckout}/>
                  <Route  exact path="/" render={this.renderLanding}/>
                 </Switch>
-
-        
-           
             </div>
         )
     }

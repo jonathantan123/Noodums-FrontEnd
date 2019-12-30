@@ -43,17 +43,20 @@ class ShoppingCartContainer extends React.Component {
     render() { 
  
         return (
-            <div>
-            <h1>Order Summary:</h1>
-            <Item.Group>
-                {this.renderShoppingCart()}
-            </Item.Group>
-        <h2>SubTotal {this.subTotal().toFormat('$0.00')}</h2>
-        <h2>Tax {this.tax().toFormat('$0.00')} </h2>
-        <h2>Total:{this.total().toFormat('$0.00')} </h2>
-            <Button 
-            as={ Link } name='checkout' to='/checkout'
-            > Checkout</Button>
+            <div className="order-container">
+                <div className="order-receipt"> 
+                    <h1>Order Summary:</h1>
+                    <Item.Group>
+                        {this.renderShoppingCart()}
+                    </Item.Group>
+                <h2>SubTotal: ---- {this.subTotal().toFormat('$0.00')}</h2>
+                <h2>Tax: ---- {this.tax().toFormat('$0.00')} </h2>
+                <h2>Total: ----{this.total().toFormat('$0.00')} </h2>
+                <br></br>
+                    <Button size="small"
+                    as={ Link } name='checkout' to='/checkout'
+                    > Checkout</Button>
+                </div>
             </div>
         )
     }

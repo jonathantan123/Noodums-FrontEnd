@@ -70,7 +70,8 @@ class CheckoutForm extends React.Component{
 
     render() {
         return(
-          <div className="form_container">
+        <div className="checkout-main">
+          <div className="checkout-form">
             <Form onSubmit={this.submitHandler}>
             <Form.Group widths='equal'>
             
@@ -111,8 +112,11 @@ class CheckoutForm extends React.Component{
                 </Grid.Row>
               </Grid>
             </Form>
+            </div>
           </div>
         )
+
+       
     }
 
 

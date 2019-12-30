@@ -1,22 +1,3 @@
-html, body {
-  height:100%;
-}
-
-
-
-/* 
-.main-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row ;
-  justify-content: center;
-  align-items: flex-start;
-  position: relative;
-  padding-top: 3%;
-  min-height: 100%;
-} */
-
-
 
 .one {
   width: 200%;
@@ -58,11 +39,12 @@ overflow: hidden;
 }
 
 .video_container {
+  background-image: url("https://images.unsplash.com/photo-1503595787607-3bc1626adf4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
   width: 100%;
-  height: 500px;
+  height: 100vh;
   display:flex; 
   justify-content: center;
-  align-items: center; 
  }
 
 
@@ -86,6 +68,7 @@ overflow: hidden;
   background-image: url("https://images.unsplash.com/photo-1503595787607-3bc1626adf4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   background-size: cover;
  }
+
  .menu-image-container { 
   display: flex;
   flex-direction: row;
@@ -127,4 +110,48 @@ overflow: hidden;
  .item-container {
    width: 75%; 
    height: 100%;
+ }
+
+ .order-container{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-image: url("https://images.unsplash.com/photo-1503595787607-3bc1626adf4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+   background-size: cover;
+   height: 100vh;
+   padding-top: 5%;
+ }
+
+ 
+ .order-receipt{
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: lightgray; 
+   opacity: 90%
+  }
+  
+  .checkout-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("https://images.unsplash.com/photo-1509771058437-91e2ce34b90d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80");
+  background-size: cover;
+  height: 100vh;
+  justify-content: center;
+ 
+
+  }
+
+   
+ .checkout-form{
+  width: 30%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray; 
+  opacity: 90%;;
  }

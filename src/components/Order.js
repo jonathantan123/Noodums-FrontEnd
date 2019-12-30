@@ -28,16 +28,16 @@ class  Order  extends React.Component {
      
      <Item.Group>
         <Item>
-          <Item.Image size='medium' src={`${this.props.order.image}`} />
+          <Item.Image size='small' src={`${this.props.order.image}`} />
           <Item.Content>
          <Item.Header> {this.props.order.name}</Item.Header>
      <Item.Meta></Item.Meta>
             <Item.Description>
               Quantity X {this.props.order.quantity}
               <br></br>
-              Price: {this.formatPrice()}
+              Price:{this.formatPrice()}
             </Item.Description>
-            <Item.Extra>this</Item.Extra>
+     <Item.Extra>{this.props.order.description}</Item.Extra>
           </Item.Content>
         </Item>
         <Button onClick={this.deleteFromCart}> Remove</Button>
