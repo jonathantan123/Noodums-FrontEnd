@@ -102,19 +102,10 @@ renderCheckout = () => {
                  <Route  path="/cart" render={this.renderCart}/>
                  <Route  path="/profile" render={this.renderProfile}/>
                  <Route  path="/checkout" render={this.renderCheckout}/>
-
                  <Route  exact path="/" render={this.renderLanding}/>
                 </Switch>
 
-                {/* <MenuCardFront menu={this.state.menu}/> */} 
-                {/* <MenuContainer items={this.state.menuArray}/>
-                <ShoppingCartContainerJS/>
-                <CheckoutForm/> */}
-                {/* <ProfileContainer/> */}
-            
-                {/* <Order/>
-                {/* <SignUp/> */}
-                {/* <Login/> */}
+        
            
             </div>
         )

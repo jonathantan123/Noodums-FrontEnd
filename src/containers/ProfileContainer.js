@@ -8,9 +8,6 @@ import PastOrder from '../components/PastOrder';
 
 
 
-
-
-
 class ProfileContainer extends React.Component {
 
     state = { 
@@ -23,8 +20,9 @@ class ProfileContainer extends React.Component {
     }
 
     renderPastOrders = () => {
-        debugger 
+         
         return( 
+            
             this.props.user_info.orders.map((order) => {
                 return (
                     <PastOrder order={order}/>
@@ -63,7 +61,6 @@ class ProfileContainer extends React.Component {
                     <React.Fragment>
                         <ProfleSideBar setActive={this.setActive}/>
                         {this.renderPastOrders()}
-                      
                     </React.Fragment>
                 )
                 break;
@@ -76,9 +73,7 @@ class ProfileContainer extends React.Component {
         }
     }
 
-   
 }
-
 
 function msp(state) {
 

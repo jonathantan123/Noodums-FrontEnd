@@ -9,10 +9,11 @@ function Navbar (props) {
 
       return (
                 <Menu secondary>
-                <Menu.Item
-                    name='home'
-                    as={ Link } name='Noodums' to='/'
-                />
+                    <Menu.Item
+                        as={ Link } name='Noodums' to='/'>
+                       <img src='./img/Logo.png'/>    
+                    </Menu.Item>
+               
                      {props.user_id !== 1? 
                         <React.Fragment>
                             <Menu.Item
@@ -35,6 +36,7 @@ function Navbar (props) {
                             name='login'
                             as={ Link } name='Login' to='/login'
                         />
+                        
                          <Menu.Item
                             name='singup'
                             as={ Link } name='Signup' to='/signup'

@@ -1,6 +1,9 @@
 import React from 'react';
 import MenuCardFront from '../components/MenuCardFront';
 import { connect } from "react-redux"
+import { Card } from 'semantic-ui-react'
+
+
 
 
 
@@ -17,7 +20,16 @@ class MenuContainer extends React.Component {
     render() {
      
         return (
-            <div >
+            <React.Fragment>
+            <div class ="video_container">
+            <div className="one">
+              <iframe frameborder="0" className="video-background"src="https://player.vimeo.com/video/271429793?byline=0&portrait=0&autoplay=1&title=0&background=1"></iframe>
+            </div>
+           <div className="welcome-text">
+               <h1>Noodums</h1>
+             </div> 
+        </div>
+            <div classname="MenuContainer">
                 <h1>Menu</h1>
                     <div class="menu-container">
                         <div class="ui cards">
@@ -25,6 +37,29 @@ class MenuContainer extends React.Component {
                         </div>
                 </div>
            </div>
+           <br></br><br></br>
+
+
+
+           <div className= "about_us_container" >
+                <div className="welcome-text">
+                    <h1>About Us: </h1>
+                    </div> 
+                
+
+
+           </div>
+
+
+
+
+
+
+
+
+
+
+           </React.Fragment>
         )
     }
 
