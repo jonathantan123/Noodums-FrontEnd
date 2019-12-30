@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from "react-redux"
 import { Redirect} from 'react-router-dom'
-
+import { Form, Input, Grid, Button} from 'semantic-ui-react'
 
 
 class Login extends React.Component {
@@ -14,7 +14,7 @@ class Login extends React.Component {
 
     changeHandler = (e) => {
         this.setState({
-            [e.target.name] : e.target.value
+            [e.target.id] : e.target.value
         })
     }
     // on submit fetch and find/set the id of the current user to redux 
@@ -49,27 +49,42 @@ class Login extends React.Component {
 
     render() {
         return (
-               <div className="form-div">
-                <form onSubmit={this.submitHandler} class="ui medium form">
-                                <div class="ui stacked segment">
-                                    <div class="field">
-                                        <label>Email Address</label>
-                                        <input type="text" onChange={this.changeHandler} placeholder="Email Address" name="username"></input>
-                                    </div>
-                                    <div class="field">
-                                        <label>Password</label>
-                                        <input type="password" onChange={this.changeHandler} placeholder="password" name="password"></input>
-                                    </div>
-                                        <button class="ui fluid large grey submit button" type="submit"> Login</button>
-                                        {this.props.user_id !== 1 ?
-                                        <React.Fragment>
-                                            <Redirect to="/profile"/>
-                                        </React.Fragment>
-                                        :
-                                        null 
-                                        }
-                                </div>
-                    </form>
+            <div className="login-container">
+               <div className="login-form">
+                <Form onSubmit={this.submitHandler}>
+                    <Form.Field
+                        id="username"
+                        control={Input}
+                        onChange={this.changeHandler}
+                        label='Email Address'
+                        placeholder='Email Address'
+                    />
+                     <Form.Field
+                        id='password'
+                        control={Input}
+                        onChange={this.changeHandler}
+                        label='Password'
+                        type='password'
+                        placeholder='Password'
+                    />
+
+                        <Grid>
+                            <Grid.Row centered>
+                            <Form.Button >Log In </Form.Button>
+                            </Grid.Row>
+                        </Grid>
+                           
+                    
+                        {this.props.user_id !== 1 ?
+                        <React.Fragment>
+                            <Redirect to="/profile"/>
+                        </React.Fragment>
+                            :
+
+                        null 
+                        }
+                         </Form>
+            </div>
                     </div>
         )
     }

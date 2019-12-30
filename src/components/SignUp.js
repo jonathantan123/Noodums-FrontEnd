@@ -79,11 +79,9 @@ class SignUp extends React.Component {
     render() {
         return (
 
-            <div className="image_container">
+            <div className="signup_container">
 
-                <Image style={{position: "absolute"}} src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1429&q=80" fluid />
-
-                <div className="form_container ">
+                <div className="signup_form ">
                 <Form onSubmit={this.submitHandler}>
                 <Form.Group widths='equal'>
                 
@@ -168,10 +166,8 @@ class SignUp extends React.Component {
                     }
 
                 </div>
-
           </div>
 
- 
         )
     }
 }
