@@ -4,6 +4,7 @@ import SignUp from "../components/SignUp"
 import Navbar from "../components/NavBar"
 import MenuCardFront from '../components/MenuCardFront';
 import MenuContainer from './MenuContainer';
+import MenuPage from './MenuPage';
 import ShoppingCartContainerJS from './ShoppingCartContainer';
 import Order from '../components/Order';
 import CheckoutForm from '../components/CheckoutForm';
@@ -84,6 +85,14 @@ renderCheckout = () => {
        </StripeProvider>
     )
 }
+renderMenu = () => {
+    return (
+    <React.Fragment>
+        <MenuPage/>
+   </React.Fragment>
+        
+    )
+}
 
 
 
@@ -98,6 +107,7 @@ renderCheckout = () => {
             <div className="main-container">
                 <Switch>
                  <Route  path="/login" render={this.renderLogin}/>
+                 <Route  path="/menu" render={this.renderMenu}/>
                  <Route  path="/signup" render={this.renderSignup}/>
                  <Route  path="/cart" render={this.renderCart}/>
                  <Route  path="/profile" render={this.renderProfile}/>

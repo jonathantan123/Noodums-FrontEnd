@@ -1,7 +1,11 @@
 import React from 'react';
 import MenuCardFront from '../components/MenuCardFront';
 import { connect } from "react-redux"
-import { Card } from 'semantic-ui-react'
+import { Card, Divider } from 'semantic-ui-react'
+import { CarouselProvider, Image, Slide, Slider } from "pure-react-carousel";
+import 'pure-react-carousel/dist/react-carousel.es.css';
+
+
 
 
 
@@ -30,7 +34,7 @@ class MenuContainer extends React.Component {
              </div> 
         </div>
             <div classname="MenuContainer">
-                <h1>Menu</h1>
+                <h1>New Items</h1>
                     <div class="menu-container">
                         <div class="ui cards">
                             {this.renderMenuCards()}

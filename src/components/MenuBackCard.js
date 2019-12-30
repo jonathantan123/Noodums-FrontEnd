@@ -33,7 +33,7 @@ render () {
     return (
         <Card>
             <Card.Content onClick={this.props.clickHandler}>
-            <Card.Header textAlign='center'>Description</Card.Header>
+    <Card.Header  textAlign='center'>{this.props.item.name}</Card.Header>
                 <Card.Description >
                     {this.props.item.description}
                 </Card.Description>

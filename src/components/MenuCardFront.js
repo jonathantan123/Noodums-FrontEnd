@@ -25,6 +25,7 @@ class MenuCardFront extends React.Component{
                 <MenuBackCard clickHandler={this.clickHandler} item={this.props.item}/>
             :
             <Card>
+                
             <Image  onClick={this.clickHandler} src={`${this.props.item.image}`} wrapped ui={true} />
             </Card>
         }

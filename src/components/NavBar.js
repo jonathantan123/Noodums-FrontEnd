@@ -13,6 +13,10 @@ function Navbar (props) {
                         as={ Link } name='Noodums' to='/'>
                        <img src='./img/Logo.png'/>    
                     </Menu.Item>
+
+                    <Menu.Item
+                        as={ Link } name='Menu' to='/menu'>    
+                    </Menu.Item>
                
                      {props.user_id !== 1? 
                         <React.Fragment>
