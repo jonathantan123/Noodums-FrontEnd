@@ -17,7 +17,8 @@ const defaultState = {
     favorites: [],
     user_info: [], 
     removed: false, 
-    total: "" 
+    total: "", 
+    subtotal: "" 
 }
 const store = createStore(reducer)
 
@@ -81,8 +82,11 @@ function reducer (state=defaultState, action) {
                 break; 
 
         case "SET_TOTAL":     
-                debugger
                 return {...state, total: action.payload }
+                break; 
+
+        case "SET_SUBTOTAL": 
+                return {...state, subtotal: action.payload }
                 break; 
 
         default:

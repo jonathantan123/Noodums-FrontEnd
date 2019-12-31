@@ -3,17 +3,10 @@ import { connect } from 'react-redux'
 import { Form, Input, Select, Divider, Grid, Header } from 'semantic-ui-react'
 import { compose } from 'redux'
 import  {injectStripe, CardElement} from 'react-stripe-elements';
-import Cards from 'react-credit-cards';
-import 'react-credit-cards/es/styles-compiled.css';
-
-
-
-
 
 class CheckoutForm extends React.Component{
 
   
-
   handleInputFocus = (e) => {
     this.setState({ focus: e.target.name });
   }
@@ -30,7 +23,7 @@ class CheckoutForm extends React.Component{
 
       let stripe = window.Stripe("pk_test_nN7xRtMVqkrqGYbZkpHkttjB00xj4HmkBz")
   
-        console.log("working")
+        debugger
          fetch(`http://localhost:3000/api/v1/order_items`, {
             method: "POST", 
             headers: {
@@ -39,10 +32,13 @@ class CheckoutForm extends React.Component{
             },
             body: JSON.stringify({
                 user_id: this.props.user_id, 
-                array: this.props.cart
+                array: this.props.cart,
+                total: this.props.total, 
+                subtotal: this.props.subtotal
             })      
         })
 
+        
         
          fetch(`http://localhost:3000/charges`, {
             method: "POST", 
@@ -128,7 +124,8 @@ function msp(state) {
         {
             cart: state.cart, 
             user_id: state.user_id, 
-            total: state.total
+            total: state.total, 
+            subtotal: state.subtotal
         }
     )
 }

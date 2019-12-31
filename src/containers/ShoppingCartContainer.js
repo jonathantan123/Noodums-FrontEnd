@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from "react-redux"
 import { Item, Button } from 'semantic-ui-react'
 import Order from '../components/Order';
-import CheckoutForm from '../components/CheckoutForm';
 import  { Link } from "react-router-dom"
 import Dinero from 'dinero.js'
 
@@ -14,6 +13,8 @@ class ShoppingCartContainer extends React.Component {
         let subtotal = Dinero({amount: this.props.cart.reduce((sum, obj) => {
             return  sum + obj.price*(obj.quantity) 
          }, 0)  }) 
+
+         this.props.setSubTotal(subtotal.getAmount())
 
 
         return subtotal
@@ -28,6 +29,7 @@ class ShoppingCartContainer extends React.Component {
         
         let total = this.subTotal().add((this.tax()))
         this.props.setTotal(total.getAmount())
+      
         return total 
     }  
 
@@ -74,6 +76,9 @@ function mapDispatchToProps(dispatch) {
     return {
         setTotal: (price) => {
             dispatch({type: "SET_TOTAL", payload: price })
+        },
+        setSubTotal: (price) => {
+            dispatch({type: "SET_SUBTOTAL", payload: price })
         }
     }
 }

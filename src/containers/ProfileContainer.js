@@ -4,7 +4,7 @@ import FavoritesPage from '../components/FavoritesPage';
 import { Grid, List } from 'semantic-ui-react'
 import ProfilePage from '../components/ProfilePage';
 import {connect} from "react-redux"
-import PastOrder from '../components/PastOrder';
+import PastOrderFront from '../components/PastOrderFront';
 
 
 
@@ -22,10 +22,9 @@ class ProfileContainer extends React.Component {
     renderPastOrders = () => {
          
         return( 
-            
             this.props.user_info.orders.map((order) => {
                 return (
-                    <PastOrder order={order}/>
+                    <PastOrderFront order={order}/>
           )}))
 
     }
