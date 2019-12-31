@@ -6,28 +6,46 @@ import EditForm from './EditForm';
 
 
 
-function ProfilePage (props) {
+class ProfilePage extends React.Component {
 
-return(
-    <React.Fragment>  
+    state = {
+        clicked: false 
+    }
 
-        <Table celled>
-            <Table.Header>
-            <Table.Row>
-                <Table.HeaderCell colSpan='3'> </Table.HeaderCell>
-            </Table.Row>
-            </Table.Header>
-                <h2>Name: {props.user_info.first_name} {props.user_info.last_name}  </h2>
-                <h2>Email Address: {props.user_info.email_address} </h2>
-                <h2>Phone Number: {props.user_info.phone_number} </h2>
-                <Button>Edit Info</Button>
-        </Table>
+    toggleForm=  () => {
+        this.setState({
+            clicked: !this.state.clicked
+        })
+    }
 
-        <EditForm/>
-
-    </React.Fragment>    
-    )
+render() {
+    return(
+        <React.Fragment>  
     
+            <Table celled>
+                <Table.Header>
+                <Table.Row>
+                    <Table.HeaderCell colSpan='3'> </Table.HeaderCell>
+                </Table.Row>
+                </Table.Header>
+                    <h2>Name: {this.props.user_info.first_name} {this.props.user_info.last_name}  </h2>
+                    <h2>Email Address: {this.props.user_info.email_address} </h2>
+                    <h2>Phone Number: {this.props.user_info.phone_number} </h2>
+                    <Button onClick={this.toggleForm}>Edit Info</Button>
+            </Table>
+            <React.Fragment>
+                {this.state.clicked? 
+                   <EditForm toggleForm={this.toggleForm}/>
+                :
+                    null
+                }
+            </React.Fragment>
+    
+    
+        </React.Fragment>    
+        )       
+    }
+
 }
 function msp(state) {
     return (

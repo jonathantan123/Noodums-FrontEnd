@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfleSideBar from '../components/ProfileSideBar';
 import FavoritesPage from '../components/FavoritesPage';
-import { Grid } from 'semantic-ui-react'
+import { Grid, List } from 'semantic-ui-react'
 import ProfilePage from '../components/ProfilePage';
 import {connect} from "react-redux"
 import PastOrder from '../components/PastOrder';
@@ -38,10 +38,10 @@ class ProfileContainer extends React.Component {
             case "Favorite":
                 return(
                          <Grid>
-                            <Grid.Column width={2}>
+                            <Grid.Column width={3}>
                             <ProfleSideBar setActive={this.setActive}/>
                             </Grid.Column>
-                            <Grid.Column width={14}>
+                            <Grid.Column width={13}>
                             <FavoritesPage/> 
                             </Grid.Column>
                         </Grid>         
@@ -51,10 +51,10 @@ class ProfileContainer extends React.Component {
             case "View/Edit Profile":
                 return(
                         <Grid>
-                            <Grid.Column width={2}>
+                            <Grid.Column width={3}>
                             <ProfleSideBar setActive={this.setActive}/>
                             </Grid.Column>
-                            <Grid.Column width={14}>
+                            <Grid.Column width={13}>
                             <ProfilePage/> 
                             </Grid.Column>
                         </Grid>         
@@ -66,11 +66,14 @@ class ProfileContainer extends React.Component {
                     
                 return(
                     <Grid>
-                        <Grid.Column width={2}>
+                        <Grid.Column width={3}>
                         <ProfleSideBar setActive={this.setActive}/>
                         </Grid.Column>
-                        <Grid.Column width={14}>
-                        {this.renderPastOrders()}
+                        <Grid.Column width={13}>
+                         <List animated verticalAlign='middle'>  
+                            {this.renderPastOrders()}
+                         </List>
+
                         </Grid.Column>
                 </Grid>         
                 )

@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Button } from 'semantic-ui-react'
+import { Button, List } from 'semantic-ui-react'
 import Moment from 'react-moment';
 
 
@@ -39,13 +39,17 @@ render () {
         <React.Fragment>
         {this.state.clicked?    
             <h1>sdfsdfsdfsd</h1>
-            
+
                 :
-                <React.Fragment>  
-                    <Moment format="LLLL">{dateToFormat}</Moment>
-                    <Button onClick={this.clickHandler}>View Order</Button>
-                </React.Fragment>
-        
+                <List.Item>
+                    <List.Content>
+                        <List.Header>
+                            <Moment format="LLLL">{dateToFormat}</Moment>
+                            <Button onClick={this.clickHandler}>View Order</Button>
+                        </List.Header>
+                    </List.Content>
+                </List.Item>
+                    
         }
         </React.Fragment>
         

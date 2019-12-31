@@ -71,6 +71,7 @@ class EditForm extends React.Component{
                     onChange={this.changeHandler} />
                 </Form.Field>
                 <Button type='submit'>Submit</Button>
+                <Button onClick={this.props.toggleForm} type='submit'>Back</Button>
           </Form>
         )
     }
