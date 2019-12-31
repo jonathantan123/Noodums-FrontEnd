@@ -12,6 +12,7 @@ class EditForm extends React.Component{
         first_name: "", 
         last_name:  "", 
         phone_number: "",
+        email_address: ""
     }
 
     changeHandler = (e) => {
@@ -37,7 +38,8 @@ class EditForm extends React.Component{
                 body: JSON.stringify({
                         first_name: this.state.first_name,
                         last_name: this.state.last_name, 
-                        phone_number: this.state.phone_number
+                        phone_number: this.state.phone_number, 
+                        email_address: this.state.email_address
                     })
             })
             } else { 
@@ -68,6 +70,13 @@ class EditForm extends React.Component{
                 <input 
                     name="phone_number" 
                     placeholder='Phone Number'
+                    onChange={this.changeHandler} />
+                </Form.Field>
+                <Form.Field>
+                <label>Email Address</label>
+                <input 
+                    name="email_address" 
+                    placeholder='Email Address'
                     onChange={this.changeHandler} />
                 </Form.Field>
                 <Button type='submit'>Submit</Button>

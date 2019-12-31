@@ -27,8 +27,6 @@ class MainContainer extends React.Component {
 
             this.props.setMenuArray(data)
             
-
-
             this.setState({
                 menuArray: data,
                 isLoading: !this.state.isLoading
@@ -114,16 +112,7 @@ renderMenu = () => {
         )
     }
 
-
-
-
-
-
-
-
-
 }
-
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -132,11 +121,5 @@ function mapDispatchToProps(dispatch) {
         }
     }
 }
-
-// function mapStateToProps(state) {
-//     return { 
-        
-//     }
-// }
 
 export default connect(null,mapDispatchToProps)(MainContainer)

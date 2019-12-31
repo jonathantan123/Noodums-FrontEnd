@@ -6,9 +6,15 @@ import Order from "./Order"
 function renderFaves(props) {
 
 if (props.favorites.length !== 0 ) {
+    debugger
+    
     
         return(props.favorites.map((fave) => {
-              return (<Order order={fave}/>)
+
+            debugger
+
+
+              return (<Order order={fave} favoriteId={fave.id}/>)
           })
         )
     } else {
@@ -29,7 +35,6 @@ if (props.favorites.length !== 0 ) {
 
 let mapStateToProps = (state) => {
     return {favorites: state.favorites}
-
 }
 
 export default connect(mapStateToProps)(FavoritesPage) 

@@ -77,8 +77,19 @@ function reducer (state=defaultState, action) {
                 return {...state, menuItems: action.payload}
                 break; 
 
-        case "ADD_TO_FAVORITES":     
+        case "SET_FAVORITES":     
                 return {...state, favorites: action.payload !== undefined ? action.payload: [] }
+                break; 
+
+        case "REMOVE_FROM_FAVORITES":    
+                
+                return {...state, favorites: state.favorites.filter(item => item.id !== action.payload) }
+                break; 
+
+        case "ADD_TO_FAVORITES":    
+        debugger
+                
+                return {...state, favorites: [...state.favorites, action.payload] }
                 break; 
 
         case "SET_TOTAL":     

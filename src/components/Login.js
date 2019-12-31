@@ -37,12 +37,10 @@ class Login extends React.Component {
 
                 if(data.errors) {
                     alert("Incorrect Username/password")
-                } else {
-                      
+                } else {          
                 this.props.login(data.data.id) 
-                this.props.addToFavorites(data.data.attributes.items)
-                this.props.getUserInfo(data.data.attributes)
-                
+                this.props.setFavorites(data.data.attributes.items)
+                this.props.getUserInfo(data.data.attributes) 
                 }
             })  
     }
@@ -97,8 +95,8 @@ function mapDispatchToProps(dispatch) {
             dispatch({type: "LOGIN", payload: id })
         }, 
 
-        addToFavorites: (favorites) => {
-            dispatch({type: "ADD_TO_FAVORITES", payload: favorites})
+        setFavorites: (favorites) => {
+            dispatch({type: "SET_FAVORITES", payload: favorites})
         },
 
         getUserInfo: (data) => {

@@ -115,7 +115,6 @@ class CheckoutForm extends React.Component{
        
     }
 
-
 }
 
 

@@ -17,8 +17,6 @@ class MenuContainer extends React.Component {
      
         return (
             <React.Fragment>
-
-           
             <div class ="video_container">
             <div className="one">
               <iframe frameborder="0" className="video-background"src="https://player.vimeo.com/video/271429793?byline=0&portrait=0&autoplay=1&title=0&background=1"></iframe>

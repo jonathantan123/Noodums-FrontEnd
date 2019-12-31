@@ -1,13 +1,12 @@
 import React from "react"
 import { Item, Button } from 'semantic-ui-react'
+import { connect } from "react-redux"
 
 
 
 function Receipt (props) {
 
     debugger
-    console.log("hi")
-
 
     let findQuantity = () => {
 
@@ -16,8 +15,49 @@ function Receipt (props) {
         return item.quantity
     }
 
+    let renderButton = () => { 
+        
+       
+       let item = props.favorites.find(fave => fave.id === props.item.id) 
+       debugger
 
-   
+       if (item) {
+           return null 
+       } else { 
+        return <Button onClick={addToFaves}>Add to Favorites</Button>
+       }
+
+ 
+
+
+    }
+
+
+    let addToFaves = () => {
+
+        fetch(`http://localhost:3000/api/v1/favorites`, {
+            method: "POST", 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                    item_id: props.item.id, 
+                    user_id: props.user_id
+                })
+        })
+            .then(resp => resp.json())
+            .then((data) => {
+                
+               let item =  props.menuItems.find(item => item.id === data.item_id )
+               
+
+               props.addToFavorites(item)
+                console.log(data)
+            })
+
+         
+    }
 
 return ( 
     <React.Fragment>
@@ -36,11 +76,31 @@ return (
         </Item.Content>
         </Item>
         </Item.Group>
-
-        <Button>Back</Button>
+            {renderButton()}
     </React.Fragment>
       )
 }
 
-export default Receipt 
+function msp(state) {
+    return {
+        user_id: state.user_id, 
+        menuItems: state.menuItems, 
+        favorites: state.favorites
+
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addToFavorites: (item) => {
+            dispatch({type: "ADD_TO_FAVORITES", payload: item })
+        },
+       
+    }
+}
+
+
+
+
+export default connect(msp, mapDispatchToProps)(Receipt)  
 

@@ -17,9 +17,22 @@ class  Order  extends React.Component {
         })
    }   
 
+   removeFromFaves = () => {
+        this.props.removeFromFavorites(this.props.order.id)
+        fetch(`http://localhost:3000/api/v1/favorites/${this.props.order.id}`)
+
+        console.log("hi")
+   }  
+
    formatPrice = () => {
-    let price = Dinero({amount: this.props.order.price})
-    return price.toFormat(`$0.00`) 
+     
+
+     if (this.props.order) {
+       let price = Dinero({amount: this.props.order.price})
+      return price.toFormat(`$0.00`) 
+     }
+
+    
 }
 
    render (){
@@ -40,24 +53,43 @@ class  Order  extends React.Component {
      <Item.Extra>{this.props.order.description}</Item.Extra>
           </Item.Content>
         </Item>
-        <Button onClick={this.deleteFromCart}> Remove</Button>
+
+        {this.props.favorites.includes(this.props.order)?
+         <Button onClick={this.removeFromFaves}> Remove</Button>
+          :
+            null        
+      }
+        {this.props.cart.includes(this.props.order)?
+         <Button onClick={this.deleteFromCart}> Remove</Button>
+          :
+            null        
+      }
+       
         </Item.Group>
-        
+      
      )  
    }
    
 }
 
-
-
 function mapDispatchToProps(dispatch) {
     return {
         removeFromCart: (id) => {
             dispatch({type: "REMOVE_FROM_CART", payload: id })
-        }
+        },
+        removeFromFavorites: (id) => {
+          dispatch({type: "REMOVE_FROM_FAVORITES", payload: id })
+      }
     }
 }
 
+function mapStateToProps(state) {
+  return {
+    favorites: state.favorites, 
+    cart: state.cart
+  }
+
+}
 
 
-  export default connect(null, mapDispatchToProps)(Order) 
+  export default connect(mapStateToProps, mapDispatchToProps)(Order) 

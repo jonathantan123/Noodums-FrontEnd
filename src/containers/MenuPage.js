@@ -37,10 +37,6 @@ class MenuPage extends React.Component {
                         </CardGroup>
 
                     </div>
-                
-               
-        
-                
             </div>
 
             <div className="noodles-image-container"></div>
