@@ -21,6 +21,8 @@ class Login extends React.Component {
 
     submitHandler=(e) => {
         e.preventDefault() 
+
+
         fetch(`http://localhost:3000/login`, {
             method: "POST", 
             headers: {
@@ -43,6 +45,7 @@ class Login extends React.Component {
                 this.props.getUserInfo(data.data.attributes) 
                 }
             })  
+            
     }
 
     render() {

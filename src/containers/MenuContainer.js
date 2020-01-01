@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuCardFront from '../components/MenuCardFront';
 import { connect } from "react-redux"
-import { Image, Reveal, Header } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
 
 class MenuContainer extends React.Component {
 
