@@ -12,7 +12,9 @@ import ProfileContainer from './ProfileContainer';
 import { Route, Switch } from 'react-router-dom'
 import { connect } from "react-redux"
 import {Elements, StripeProvider} from 'react-stripe-elements';
-import OrdersPerMonth from '../components/OrdersPerMonth';
+import OrdersPerMonth from '../components/OrdersChart';
+import RevenueChart from '../components/RevenueChart';
+import AdminContainer from './AdminContainer';
 
 class MainContainer extends React.Component {
 
@@ -95,8 +97,7 @@ renderMenu = () => {
 renderDashboard = () => {
     return (
     <React.Fragment>
-        <OrdersPerMonth/>
-  
+        <AdminContainer/>
    </React.Fragment>
         
     )

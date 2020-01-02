@@ -2,26 +2,31 @@
 import React from 'react'
 import { ResponsiveLine } from '@nivo/line'
 import {connect} from "react-redux"
+import Dinero from 'dinero.js'
 
 
-class OrdersPerMonth extends React.Component {
 
-//// should move to login
+class RevenueChart extends React.Component {
 
-    componentDidMount() {
-        fetch(`http://localhost:3000/api/v1/orders`)
-        .then(resp => resp.json())
-        .then((data) => {
-            
-            this.props.setRevenue(data.revenue) 
-            this.props.setNumberOfOrders(data.number_of_orders)
-        })
-    }
-
+  
+  componentDidMount() {
+    fetch(`http://localhost:3000/api/v1/orders`)
+    .then(resp => resp.json())
+    .then((data) => {
+      
+      this.props.setRevenue(data.revenue) 
+      // this.props.setNumberOfrevenue(data.number_of_revenue)
+    })
+  }
+  
+  formatNumbers = () => {
+    return this.props.revenue.map(amount => parseInt(Dinero({amount: amount}).toFormat('0.00')))
+  
+  }
+  
     render() {
-        debugger
-
-        let orders = this.props.number_of_orders
+        
+        let revenue = this.formatNumbers()
 
         let data = 
         [
@@ -31,51 +36,51 @@ class OrdersPerMonth extends React.Component {
               "data": [
                 {
                   "x": "Jan",
-                  "y": orders[0]
+                  "y": revenue[0]
                 },
                 {
                   "x": "Feb",
-                  "y": orders[1]
+                  "y": revenue[1]
                 },
                 {
                     "x": "Mar",
-                    "y": orders[2]
+                    "y": revenue[2]
                   },
                 {
                     "x": "Apr",
-                    "y": orders[3]
+                    "y": revenue[3]
                   },
                 {
                     "x": "May",
-                    "y": orders[4]
+                    "y": revenue[4]
                   },
                 {
                     "x": "Jun",
-                    "y": orders[5]
+                    "y": revenue[5]
                   },
                 {
                     "x": "Jul",
-                    "y": orders[6]
+                    "y": revenue[6]
                   },
                 {
                     "x": "Aug",
-                    "y": orders[7]
+                    "y": revenue[7]
                   },
                 {
                     "x": "Sep",
-                    "y": orders[8]
+                    "y": revenue[8]
                   },
                 {
                     "x": "Oct",
-                    "y": orders[9]
+                    "y": revenue[9]
                   },
                 {
                     "x": "Nov",
-                    "y": orders[10]
+                    "y": revenue[10]
                   },
                 {
                     "x": "Dec",
-                    "y": orders[11]
+                    "y": revenue[11]
                   }
                 
               ]
@@ -85,6 +90,7 @@ class OrdersPerMonth extends React.Component {
         return (
             
             <div className="chart-container">
+                <h2>Revenue By Month</h2> 
                  <ResponsiveLine
                     data={data}
                     margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
@@ -106,7 +112,7 @@ class OrdersPerMonth extends React.Component {
                         tickSize: 5,
                         tickPadding: 5,
                         tickRotation: 0,
-                        legend: 'Number oF orders',
+                        legend: 'Revenue (in dollars)',
                         legendOffset: -40,
                         legendPosition: 'middle'
                     }}
@@ -155,20 +161,20 @@ function mapDispatchToProps(dispatch) {
     return {
         setRevenue: (revenue) => {
             dispatch({type: "SET_REVENUE", payload: revenue })
-        },
-        setNumberOfOrders: (number_of_orders) => {
-            dispatch({type: "SET_NUMBER_OF_ORDERS", payload: number_of_orders })
         }
+        // setNumberOfrevenue: (number_of_revenue) => {
+        //     dispatch({type: "SET_NUMBER_OF_revenue", payload: number_of_revenue })
+        // }
     }
 }
 
 function mapStateToProps(state) {
     return {
-        revenue: state.revenue,
-        number_of_orders: state.number_of_orders
+        revenue: state.revenue
+        // number_of_revenue: state.number_of_revenue
     }
 }
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrdersPerMonth)
+export default connect(mapStateToProps, mapDispatchToProps)(RevenueChart)
