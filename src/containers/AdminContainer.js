@@ -9,13 +9,15 @@ import AdminSideBar from '../components/AdminSideBar';
 import RevenueChart from '../components/RevenueChart';
 import OrdersChart from '../components/OrdersChart';
 import ItemPopularityChart from '../components/ItemPopularityChart';
+import EditForm from '../components/EditForm';
 
 
 
 class AdminContainer extends React.Component {
 
     state = { 
-        activeItem: '' 
+        activeItem: '', 
+        submitted: true 
     }
 
     setActive = (e,menuItem) => {
@@ -23,6 +25,9 @@ class AdminContainer extends React.Component {
         console.log(this.state)
     }
 
+  
+
+  
 
     render() { 
 
@@ -63,6 +68,19 @@ class AdminContainer extends React.Component {
                             <Grid.Column width={13}>
                                 <ItemPopularityChart/>
 
+                            </Grid.Column>
+                        </Grid>         
+                     
+                )
+                break;
+            case "Edit Credentials":
+                return(
+                        <Grid>
+                            <Grid.Column width={3}>
+                            <AdminSideBar setActive={this.setActive} />
+                            </Grid.Column>
+                            <Grid.Column width={13}>
+                                <EditForm/>
                             </Grid.Column>
                         </Grid>         
                      
