@@ -76,13 +76,21 @@ class Login extends React.Component {
                         </Grid>
                            
                     
-                        {this.props.user_id !== 1 ?
+                        {this.props.user_id ===  1 ?
                         <React.Fragment>
-                            <Redirect to="/profile"/>
+                            <Redirect to="/dashboard"/>
                         </React.Fragment>
                             :
-
-                        null 
+                            <React.Fragment>
+                                {this.props.user_id !== 2 ?
+                                    <React.Fragment>
+                                    <Redirect to="/profile"/>
+                                    </React.Fragment>
+                                
+                                :
+                                    null
+                                }
+                           </React.Fragment>
                         }
                          </Form>
             </div>

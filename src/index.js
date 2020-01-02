@@ -12,7 +12,7 @@ import { Provider } from "react-redux"
 const defaultState = {
     menuItems: [], 
     // allOrders:[],
-    user_id: 1, 
+    user_id: 2, 
     cart: [], 
     favorites: [],
     user_info: [], 
@@ -29,12 +29,13 @@ const store = createStore(reducer)
 function reducer (state=defaultState, action) {
     switch (action.type) {
         case "LOGIN": 
+            debugger
             return {...state,
                  user_id: action.payload}
             break; 
 
         case "LOGOUT": 
-            return {...state, user_id: 1}
+            return {...state, user_id: 2}
             break; 
 
         case "GET_USER_INFO": 

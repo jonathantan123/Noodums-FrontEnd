@@ -61,11 +61,17 @@ class SignUp extends React.Component {
         })
         .then(resp => resp.json())
         .then((data) => {
-            debugger 
+             
             if(data.errors) {
                 alert(data.errors[0])
             } else {
-                this.props.login(data.id)
+                
+
+
+                this.props.login(data.data.id)
+                this.props.setFavorites(data.data.attributes.items)
+                this.props.getUserInfo(data.data.attributes)
+
             }
         })
 
@@ -156,9 +162,9 @@ class SignUp extends React.Component {
                 </Grid>
                 </Form>
 
-                {this.props.user_id !== 1 ?
+                {this.props.user_id !== 2 ?
                     <React.Fragment>
-                        <Redirect to="/profile"/>
+                        <Redirect to="/login"/>
                     </React.Fragment>
                     :
                     null 
@@ -182,7 +188,15 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {  
     return { login: (id)=> {
         dispatch({type: "LOGIN", payload: id })
-     }
+     }, 
+
+      setFavorites: (favorites) => {
+            dispatch({type: "SET_FAVORITES", payload: favorites})
+        },
+
+        getUserInfo: (data) => {
+            dispatch({type: "GET_USER_INFO", payload: data})
+        }
     }
 }
 

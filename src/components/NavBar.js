@@ -26,11 +26,20 @@ function Navbar (props) {
                         as={ Link } name='Our Story' to='/our_story'>    
                     </Menu.Item>
                
-                     {props.user_id !== 1? 
+                     {props.user_id !== 2? 
                         <React.Fragment>
                             <Menu.Item
                             name='profile'
                             as={ Link } name='Profile' to='/profile'
+                            />
+                        </React.Fragment>
+                        : null }
+
+                     {props.user_id === 1 ? 
+                        <React.Fragment>
+                            <Menu.Item
+                            name='Dashboard'
+                            as={ Link } name='Dashboard' to='/dashboard'
                             />
                         </React.Fragment>
                         : null }
@@ -43,7 +52,7 @@ function Navbar (props) {
                     name='cart' 
                 />
 
-                {props.user_id === 1? 
+                {props.user_id === 2? 
                     <React.Fragment>
                          <Menu.Item
                             name='login'
@@ -51,7 +60,7 @@ function Navbar (props) {
                         />
                         
                          <Menu.Item
-                            name='singup'
+                            name='signup'
                             as={ Link } name='Signup' to='/signup'
                         />
                     </React.Fragment>
