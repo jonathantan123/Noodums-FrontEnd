@@ -60,7 +60,7 @@ function Navbar (props) {
                         />
                         
                          <Menu.Item
-                            name='signup'
+                            name='signgup'
                             as={ Link } name='Signup' to='/signup'
                         />
                     </React.Fragment>
