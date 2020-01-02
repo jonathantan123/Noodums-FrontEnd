@@ -12,6 +12,7 @@ class OrdersChart extends React.Component {
         fetch(`http://localhost:3000/api/v1/orders`)
         .then(resp => resp.json())
         .then((data) => {
+      
             
             // this.props.setRevenue(data.revenue) 
             this.props.setNumberOfOrders(data.number_of_orders)

@@ -21,7 +21,8 @@ const defaultState = {
     subtotal: "", 
     revenue: [],
     number_of_orders: [], 
-    quantity: [] 
+    quantity: [], 
+    itemSales: [] 
 
 }
 const store = createStore(reducer)
@@ -29,7 +30,7 @@ const store = createStore(reducer)
 function reducer (state=defaultState, action) {
     switch (action.type) {
         case "LOGIN": 
-            debugger
+            
             return {...state,
                  user_id: action.payload}
             break; 
@@ -111,8 +112,12 @@ function reducer (state=defaultState, action) {
                 break; 
 
         case "SET_QUANTITY":
-            debugger
+            
                 return {...state, quantity: action.payload}
+                break; 
+
+        case "SET_SALES_BY_ITEM":
+                return {...state, itemSales: action.payload}
                 break; 
 
         default:

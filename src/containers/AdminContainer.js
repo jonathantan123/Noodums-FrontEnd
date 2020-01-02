@@ -10,6 +10,8 @@ import RevenueChart from '../components/RevenueChart';
 import OrdersChart from '../components/OrdersChart';
 import ItemPopularityChart from '../components/ItemPopularityChart';
 import EditForm from '../components/EditForm';
+import SalesByItemByMonthChart from '../components/SalesByItemByMonthChart';
+import SalesItemChart from '../components/SalesItemChart';
 
 
 
@@ -20,7 +22,8 @@ class AdminContainer extends React.Component {
         submitted: true 
     }
 
-    setActive = (e,menuItem) => {
+    setActive = (e, menuItem) => {
+        console.log(menuItem)
         this.setState( {activeItem: menuItem.name})
         console.log(this.state)
     }
@@ -30,7 +33,7 @@ class AdminContainer extends React.Component {
   
 
     render() { 
-
+        console.log(this.state.activeItem)
         switch (this.state.activeItem) {
 
             case "Monthly Orders":
@@ -67,7 +70,22 @@ class AdminContainer extends React.Component {
                             </Grid.Column>
                             <Grid.Column width={13}>
                                 <ItemPopularityChart/>
-
+                                {/* <SalesByItemByMonthChart/> */}
+                            </Grid.Column>
+                        </Grid>         
+                     
+                )
+                break;
+            case "Total Sales by Item Count":
+                return(
+                        <Grid>
+                            <Grid.Column width={3}>
+                            <AdminSideBar setActive={this.setActive}/>
+                            </Grid.Column>
+                            <Grid.Column width={13}>
+                                <SalesItemChart/>
+                            
+                                
                             </Grid.Column>
                         </Grid>         
                      

@@ -9,7 +9,7 @@ function AdminSideBar (props) {
 return ( 
     <Grid columns={3} divided>
          <Grid.Column>
-            <Menu vertical left>
+            <Menu vertical>
                 <Menu.Item>
                 <h1>Admin Account</h1> 
                 </Menu.Item>
@@ -18,6 +18,7 @@ return (
                         <Dropdown.Item icon='money bill alternate' text='Monthly Revenue' name="Monthly Revenue" onClick={props.setActive}/>
                         <Dropdown.Item icon='shopping basket' text='Monthly Orders' name="Monthly Orders" onClick={props.setActive} />
                         <Dropdown.Item icon='shopping basket' text="Total Sales by Item" name="Total Sales by Item" onClick={props.setActive} />
+                        <Dropdown.Item icon='shopping basket' text="Total Sales by Item Count" name="Total Sales by Item Count" onClick={props.setActive} />
                     </Dropdown.Menu>
                     </Dropdown>
                     
