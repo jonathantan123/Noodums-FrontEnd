@@ -20,7 +20,8 @@ const defaultState = {
     total: "", 
     subtotal: "", 
     revenue: [],
-    number_of_orders: [] 
+    number_of_orders: [], 
+    quantity: [] 
 
 }
 const store = createStore(reducer)
@@ -101,14 +102,16 @@ function reducer (state=defaultState, action) {
                 break; 
 
         case "SET_REVENUE":
-                
-        
                 return {...state, revenue: action.payload}
                 break; 
+
         case "SET_NUMBER_OF_ORDERS":
-                
-        
                 return {...state, number_of_orders: action.payload}
+                break; 
+
+        case "SET_QUANTITY":
+            debugger
+                return {...state, quantity: action.payload}
                 break; 
 
         default:

@@ -17,6 +17,7 @@ return (
                     <Dropdown.Menu>
                         <Dropdown.Item icon='money bill alternate' text='Monthly Revenue' name="Monthly Revenue" onClick={props.setActive}/>
                         <Dropdown.Item icon='shopping basket' text='Monthly Orders' name="Monthly Orders" onClick={props.setActive} />
+                        <Dropdown.Item icon='shopping basket' text="Total Sales by Item" name="Total Sales by Item" onClick={props.setActive} />
                     </Dropdown.Menu>
                     </Dropdown>
                     

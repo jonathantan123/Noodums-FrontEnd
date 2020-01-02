@@ -8,6 +8,7 @@ import PastOrderFront from '../components/PastOrderFront';
 import AdminSideBar from '../components/AdminSideBar';
 import RevenueChart from '../components/RevenueChart';
 import OrdersChart from '../components/OrdersChart';
+import ItemPopularityChart from '../components/ItemPopularityChart';
 
 
 
@@ -53,23 +54,20 @@ class AdminContainer extends React.Component {
                      
                 )
                 break;
+            case "Total Sales by Item":
+                return(
+                        <Grid>
+                            <Grid.Column width={3}>
+                            <AdminSideBar setActive={this.setActive}/>
+                            </Grid.Column>
+                            <Grid.Column width={13}>
+                                <ItemPopularityChart/>
 
-            // case "Past Orders":
-                    
-            //     return(
-            //         <Grid>
-            //             <Grid.Column width={3}>
-            //             <AdminSideBar setActive={this.setActive}/>
-            //             </Grid.Column>
-            //             <Grid.Column width={13}>
-            //              <List animated verticalAlign='middle'>  
-            //                 {this.renderPastOrders()}
-            //              </List>
-
-            //             </Grid.Column>
-            //     </Grid>         
-            //     )
-            //     break;
+                            </Grid.Column>
+                        </Grid>         
+                     
+                )
+                break;
         
             default:
                 return(
