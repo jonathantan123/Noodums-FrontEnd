@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuCardFront from '../components/MenuCardFront';
-import MenuBackCard from '../components/MenuBackCard';
+import MenuBackCardDisplay from '../components/MenuBackCardDisplay';
 
 import { connect } from "react-redux"
         
@@ -23,7 +23,7 @@ class MenuPage extends React.Component {
     renderMenuCardsBack = () => {
         return(
         this.props.menuItems.map((item) => {
-            return (<MenuBackCard item={item}/>)
+            return (<MenuBackCardDisplay item={item}/>)
         }))
     }
 

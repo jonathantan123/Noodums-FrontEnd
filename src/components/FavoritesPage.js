@@ -6,12 +6,12 @@ import Order from "./Order"
 function renderFaves(props) {
 
 if (props.favorites.length !== 0 ) {
-    debugger
+    
     
     
         return(props.favorites.map((fave) => {
 
-            debugger
+            
 
 
               return (<Order order={fave} favoriteId={fave.id}/>)

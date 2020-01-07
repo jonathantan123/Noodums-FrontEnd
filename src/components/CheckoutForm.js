@@ -12,7 +12,7 @@ class CheckoutForm extends React.Component{
   }
   
   handleInputChange = (e) => {
-    debugger
+    
     const { name, value } = e.target;
     
     this.setState({ [name]: value });
@@ -23,7 +23,7 @@ class CheckoutForm extends React.Component{
 
       let stripe = window.Stripe("pk_test_nN7xRtMVqkrqGYbZkpHkttjB00xj4HmkBz")
   
-        debugger
+        
          fetch(`http://localhost:3000/api/v1/order_items`, {
             method: "POST", 
             headers: {
@@ -58,7 +58,7 @@ class CheckoutForm extends React.Component{
             sessionId: data.id
           })
 
-          debugger
+          
           console.log(data)
         })
 

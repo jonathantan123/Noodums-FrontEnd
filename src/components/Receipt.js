@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 
 function Receipt (props) {
 
-    debugger
+    
 
     let findQuantity = () => {
 
@@ -19,7 +19,7 @@ function Receipt (props) {
         
        
        let item = props.favorites.find(fave => fave.id === props.item.id) 
-       debugger
+       
 
        if (item) {
            return null 

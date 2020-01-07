@@ -36,7 +36,7 @@ class EditForm extends React.Component{
 
       submitHandler=(e) => {
         e.preventDefault()
-        debugger
+        
         if( this.state.phone_number !== "") {
             if(this.phoneIsValid(this.state.phone_number) ){
                 fetch(`http://localhost:3000/api/v1/users/${this.props.user_id}`, {

@@ -12,7 +12,7 @@ class ItemPopularityChart extends React.Component {
         fetch(`http://localhost:3000/api/v1/orders`)
         .then(resp => resp.json())
         .then((data) => {     
-            debugger
+            
             this.props.setQuantity(data.quantity)
         })
     }

@@ -37,7 +37,7 @@ class SignUp extends React.Component {
 
     submitHandler=(e) => {
         e.preventDefault()
-        debugger
+        
 
     if (this.state.email_address === this.state.confirm_email_address 
         && this.state.password === this.state.confirm_password 

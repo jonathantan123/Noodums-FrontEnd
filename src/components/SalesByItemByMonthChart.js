@@ -5,12 +5,12 @@ import {connect} from "react-redux"
 
 
 class SalesByItemByMonthChart extends React.Component {
-    
+
     componentDidMount() {
         fetch(`http://localhost:3000/api/v1/orders`)
         .then(resp => resp.json())
         .then((data) => {     
-            debugger
+            
             this.props.setQuantity(data.quantity)
         })
     }
@@ -155,7 +155,7 @@ class SalesByItemByMonthChart extends React.Component {
 //     fetch(`http://localhost:3000/api/v1/orders`)
 //     .then(resp => resp.json())
 //     .then((data) => {    
-//         debugger 
+//          
 //         this.setState({
 //             itemSales: data
 //         })
