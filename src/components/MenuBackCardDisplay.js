@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Icon, Image, Button, Menu, Modal, Header } from 'semantic-ui-react'
+import { Card, Menu } from 'semantic-ui-react'
 import Dinero from 'dinero.js'
 
 class  MenuBackCardDisplay extends React.Component {
@@ -14,8 +14,7 @@ class  MenuBackCardDisplay extends React.Component {
         })
     }
     
- 
-    
+
     formatPrice = () => {
         let price = Dinero({amount: this.props.item.price})
         return price.toFormat(`$0.00`) 

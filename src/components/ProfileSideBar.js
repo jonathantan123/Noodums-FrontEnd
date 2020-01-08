@@ -16,8 +16,8 @@ return (
                     <Dropdown item text='Profile'>
                     <Dropdown.Menu>
                         <Dropdown.Item icon='user' text='View/Edit Profile' name="View/Edit Profile" onClick={props.setActive}/>
-                        <Dropdown.Item icon='edit' text='Change Username/Password' name="Change Username/Password" onClick={props.setActive} />
-                        <Dropdown.Item icon='credit card' text='Add Credit Card' name="Add Credit Card"onClick={props.setActive} />
+                        {/* <Dropdown.Item icon='edit' text='Change Username/Password' name="Change Username/Password" onClick={props.setActive} />
+                        <Dropdown.Item icon='credit card' text='Add Credit Card' name="Add Credit Card"onClick={props.setActive} /> */}
                     </Dropdown.Menu>
                     </Dropdown>
                     

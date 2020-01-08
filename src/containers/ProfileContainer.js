@@ -30,6 +30,32 @@ class ProfileContainer extends React.Component {
     }
 
 
+    // addToFaves = () => {
+
+    //     fetch(`http://localhost:3000/api/v1/favorites`, {
+    //         method: "POST", 
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //                 item_id: this.props.item.id, 
+    //                 user_id: this.props.user_id
+    //             })
+    //     })
+    //         .then(resp => resp.json())
+    //         .then((data) => {
+                
+    //            let item =  this.props.menuItems.find(item => item.id === data.item_id )
+        
+    //            this.props.addToFavorites(item)
+                
+    //         })
+
+         
+    // }
+
+
     render() { 
 
         switch (this.state.activeItem) {
@@ -94,6 +120,17 @@ function msp(state) {
         user_info: state.user_info
     }
 }
+
+
+
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         addToFavorites: (item) => {
+//             dispatch({type: "ADD_TO_FAVORITES", payload: item })
+//         },
+       
+//     }
+// }
 
 
 

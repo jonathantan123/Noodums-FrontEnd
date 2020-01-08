@@ -91,7 +91,8 @@ function reducer (state=defaultState, action) {
                 break; 
 
         case "ADD_TO_FAVORITES":    
-        
+        debugger    
+
                 return {...state, favorites: [...state.favorites, action.payload] }
                 break; 
 

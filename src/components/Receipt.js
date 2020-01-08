@@ -1,13 +1,21 @@
 import React from "react"
 import { Item, Button } from 'semantic-ui-react'
 import { connect } from "react-redux"
+import Dinero from 'dinero.js'
+
 
 
 
 function Receipt (props) {
 
-    
 
+    
+    let formatPrice = () => {
+        let price = Dinero({amount: props.item.price})
+        return price.toFormat(`$0.00`) 
+    }
+
+    
     let findQuantity = () => {
 
         let item =  props.data.order_items.find(o => o.item_id === props.item.id )
@@ -15,49 +23,46 @@ function Receipt (props) {
         return item.quantity
     }
 
-    let renderButton = () => { 
+    // let renderButton = () => { 
         
        
-       let item = props.favorites.find(fave => fave.id === props.item.id) 
+    //    let item = props.favorites.find(fave => fave.id === props.item.id) 
        
 
-       if (item) {
-           return null 
-       } else { 
-        return <Button onClick={addToFaves}>Add to Favorites</Button>
-       }
-
- 
+    //    if (item) {
+    //        return null 
+    //    } else { 
+    //     return <Button onClick={addToFaves}>Add to Favorites</Button>
+    //    }
 
 
-    }
+    // }
 
 
-    let addToFaves = () => {
+    // let addToFaves = () => {
 
-        fetch(`http://localhost:3000/api/v1/favorites`, {
-            method: "POST", 
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                    item_id: props.item.id, 
-                    user_id: props.user_id
-                })
-        })
-            .then(resp => resp.json())
-            .then((data) => {
+    //     fetch(`http://localhost:3000/api/v1/favorites`, {
+    //         method: "POST", 
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //                 item_id: props.item.id, 
+    //                 user_id: props.user_id
+    //             })
+    //     })
+    //         .then(resp => resp.json())
+    //         .then((data) => {
                 
-               let item =  props.menuItems.find(item => item.id === data.item_id )
-               
-
-               props.addToFavorites(item)
-                console.log(data)
-            })
+    //            let item =  props.menuItems.find(item => item.id === data.item_id )
+        
+    //            props.addToFavorites(item)
+    //             console.log(data)
+    //         })
 
          
-    }
+    // }
 
 return ( 
     <React.Fragment>
@@ -70,13 +75,13 @@ return (
             <Item.Description>
             Quantity X {findQuantity()}
             <br></br>
-            Price: {props.item.price}
+            Price: {formatPrice()}
             </Item.Description>
     <Item.Extra>{props.item.description}</Item.Extra>
         </Item.Content>
         </Item>
         </Item.Group>
-            {renderButton()}
+            {/* {this.renderButton()} */}
     </React.Fragment>
       )
 }
@@ -98,8 +103,6 @@ function mapDispatchToProps(dispatch) {
        
     }
 }
-
-
 
 
 export default connect(msp, mapDispatchToProps)(Receipt)  

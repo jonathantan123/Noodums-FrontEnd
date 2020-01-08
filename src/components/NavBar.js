@@ -22,9 +22,9 @@ function Navbar (props) {
                         as={ Link } name='Menu' to='/menu'>    
                     </Menu.Item>
 
-                    <Menu.Item
+                    {/* <Menu.Item
                         as={ Link } name='Our Story' to='/our_story'>    
-                    </Menu.Item>
+                    </Menu.Item> */}
                
                      {props.user_id !== 2? 
                         <React.Fragment>

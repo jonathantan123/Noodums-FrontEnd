@@ -4,6 +4,7 @@ import { Button, List, Grid } from 'semantic-ui-react'
 import Moment from 'react-moment';
 import Order from './Order';
 import Receipt from './Receipt';
+import { connect } from "react-redux"
 import Dinero from 'dinero.js'
 
 
@@ -25,6 +26,47 @@ toggleClick = () => {
      })
 }
 
+addToFaves = (item) => {
+    debugger
+    
+
+    fetch(`http://localhost:3000/api/v1/favorites`, {
+        method: "POST", 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+                item_id: item.id, 
+                user_id: this.props.user_id
+            })
+    })
+        .then(resp => resp.json())
+        .then((data) => {
+
+                
+           let itemToFind =  this.props.menuItems.find(itemToFind => itemToFind.id === data.item_id )
+           debugger    
+
+           this.props.addToFavorites(itemToFind)
+            
+        })
+   
+}
+
+ renderButton = (item) => { 
+     debugger
+     
+        
+        let x = this.props.favorites.find(fave => fave.id === item.id) 
+        
+        if (x === undefined) {
+            return <Button onClick={() => this.addToFaves(item)}>Add to Favorites</Button>
+        } else { 
+        return null 
+        }
+
+ }
 clickHandler = () => {
 
     fetch(`http://localhost:3000/api/v1/orders/${this.props.order.id}`)
@@ -40,9 +82,15 @@ clickHandler = () => {
 }
 
 renderPastOrders = () => {
+    debugger
     return (
         this.state.data.items.map((item) => {
-            return (<Receipt item={item} data={this.state.data}/>)
+            return (
+                <React.Fragment>
+                    <Receipt item={item} data={this.state.data}/>
+                    {this.renderButton(item)}
+                </React.Fragment>
+            )
         })
     )
 }
@@ -81,4 +129,24 @@ render () {
 }
 }
 
-export default (PastOrderFront) 
+
+function msp(state) {
+    return {
+        user_id: state.user_id, 
+        menuItems: state.menuItems, 
+        favorites: state.favorites
+
+    }
+}
+
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addToFavorites: (item) => {
+            dispatch({type: "ADD_TO_FAVORITES", payload: item })
+        },
+       
+    }
+}
+
+export default connect(msp, mapDispatchToProps) (PastOrderFront) 
