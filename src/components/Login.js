@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from "react-redux"
 import { Redirect} from 'react-router-dom'
-import { Form, Input, Grid, Button} from 'semantic-ui-react'
+import { Form, Input, Grid} from 'semantic-ui-react'
 
 
 class Login extends React.Component {
@@ -45,7 +45,7 @@ class Login extends React.Component {
                           
                 this.props.login(parseInt(data.data.id)) 
                 this.props.setFavorites(data.data.attributes.items)
-                this.props.getUserInfo(data.data.attributes) 
+                this.props.getUserInfo(data.data.attributes)
                 }
             })  
             

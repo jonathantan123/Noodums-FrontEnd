@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuBackCard from './MenuBackCard';
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 
 
 class MenuCardFront extends React.Component{

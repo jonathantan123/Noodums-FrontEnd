@@ -1,19 +1,14 @@
 import React from 'react';
 import Login from "../components/Login"
 import SignUp from "../components/SignUp"
-import Navbar from "../components/NavBar"
-import MenuCardFront from '../components/MenuCardFront';
 import MenuContainer from './MenuContainer';
 import MenuPage from './MenuPage';
 import ShoppingCartContainer from './ShoppingCartContainer';
-import Order from '../components/Order';
 import CheckoutForm from '../components/CheckoutForm';
 import ProfileContainer from './ProfileContainer';
 import { Route, Switch } from 'react-router-dom'
 import { connect } from "react-redux"
 import {Elements, StripeProvider} from 'react-stripe-elements';
-import OrdersPerMonth from '../components/OrdersChart';
-import RevenueChart from '../components/RevenueChart';
 import AdminContainer from './AdminContainer';
 
 class MainContainer extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import  { Link } from "react-router-dom"
-import {  Menu, Header} from 'semantic-ui-react'
+import {  Menu} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 
@@ -11,7 +11,7 @@ function Navbar (props) {
                 <Menu secondary  size='huge'>
                     <Menu.Item
                         as={ Link } name='Noodums' to='/'>
-                       <img src='./img/Logo.png'/>    
+                       <img src='./img/Logo.png' alt="logo"/>    
                     </Menu.Item>
 
                     <Menu.Item
@@ -29,7 +29,6 @@ function Navbar (props) {
                      {props.user_id !== 2? 
                         <React.Fragment>
                             <Menu.Item
-                            name='profile'
                             as={ Link } name='Profile' to='/profile'
                             />
                         </React.Fragment>
@@ -38,7 +37,6 @@ function Navbar (props) {
                      {props.user_id === 1 ? 
                         <React.Fragment>
                             <Menu.Item
-                            name='Dashboard'
                             as={ Link } name='Dashboard' to='/dashboard'
                             />
                         </React.Fragment>
@@ -49,25 +47,21 @@ function Navbar (props) {
 
                 <Menu.Item 
                     as={ Link } name='cart' to='/cart'
-                    name='cart' 
                 />
 
                 {props.user_id === 2? 
                     <React.Fragment>
                          <Menu.Item
-                            name='login'
                             as={ Link } name='Login' to='/login'
                         />
                         
                          <Menu.Item
-                            name='signgup'
                             as={ Link } name='Signup' to='/signup'
                         />
                     </React.Fragment>
                 :
                 <React.Fragment>
                     <Menu.Item
-                            name='logout'
                             as={ Link } name='logout' to='/'
                             onClick={props.logout}
                         />

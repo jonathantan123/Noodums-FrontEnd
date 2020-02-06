@@ -1,7 +1,6 @@
 
 import React from 'react'
 import { ResponsiveBar } from '@nivo/bar'
-import {connect} from "react-redux"
 
 
 class SalesItemChart extends React.Component {
@@ -288,19 +287,5 @@ componentDidMount() {
 
             }      
 }
-
-// function mapDispatchToProps(dispatch) {
-//         return {
-//             setSalesByItem: (array) => {
-//                 dispatch({type: "SET_SALES_BY_ITEM", payload: array })
-//             }
-//         }
-//     }
-    
-//     function mapStateToProps(state) {
-//         return {
-//             itemSales: state.itemSales
-//         }
-//     }
 
 export default SalesItemChart

@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { Form, Input, Select, Divider, Grid, Header } from 'semantic-ui-react'
+import { Form, Input, Divider, Grid, Header } from 'semantic-ui-react'
 import { compose } from 'redux'
-import  {injectStripe, CardElement} from 'react-stripe-elements';
+import  {injectStripe} from 'react-stripe-elements';
 
 class CheckoutForm extends React.Component{
 

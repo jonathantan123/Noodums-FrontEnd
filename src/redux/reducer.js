@@ -16,7 +16,6 @@ const defaultState = {
 
 }
 
-
 function reducer (state=defaultState, action) {
     switch (action.type) {
         case "LOGIN": 
@@ -28,6 +27,7 @@ function reducer (state=defaultState, action) {
             return {...state, user_id: 2}
       
         case "GET_USER_INFO": 
+        
             return {...state, user_info: action.payload}
       
         case "ADD_TO_CART":

@@ -29,7 +29,6 @@ class ProfileContainer extends React.Component {
 
     }
 
-
     // addToFaves = () => {
 
     //     fetch(`http://localhost:3000/api/v1/favorites`, {
@@ -71,7 +70,7 @@ class ProfileContainer extends React.Component {
                             </Grid.Column>
                         </Grid>         
                 )
-                break;
+                
 
             case "View/Edit Profile":
                 return(
@@ -85,7 +84,7 @@ class ProfileContainer extends React.Component {
                         </Grid>         
                      
                 )
-                break;
+            
 
             case "Past Orders":
                     
@@ -102,13 +101,12 @@ class ProfileContainer extends React.Component {
                         </Grid.Column>
                 </Grid>         
                 )
-                break;
+               
         
             default:
                 return(
                     <ProfleSideBar setActive={this.setActive}/>
                 )
-                break;
         }
     }
 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Form, Input, Select, Divider, Grid, Image} from 'semantic-ui-react'
+import { Form, Input, Divider, Grid} from 'semantic-ui-react'
 import {connect} from "react-redux"
 import { Redirect} from 'react-router-dom'
 
@@ -15,8 +15,7 @@ class SignUp extends React.Component {
         email_address: "", 
         confirm_email_address: "",
         confirm_password: "",
-        password: "", 
-        phone_number: ""
+        password: ""
     }
 
      emailIsValid (email) {
@@ -55,7 +54,6 @@ class SignUp extends React.Component {
                     password: this.state.password,
                     first_name: this.state.first_name,
                     last_name: this.state.last_name, 
-                    password: this.state.password,
                     phone_number: this.state.phone_number
                 })
         })

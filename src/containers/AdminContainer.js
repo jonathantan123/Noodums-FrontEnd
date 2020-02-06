@@ -23,10 +23,6 @@ class AdminContainer extends React.Component {
         console.log(this.state)
     }
 
-  
-
-  
-
     render() { 
         console.log(this.state.activeItem)
         switch (this.state.activeItem) {
@@ -42,7 +38,7 @@ class AdminContainer extends React.Component {
                             </Grid.Column>
                         </Grid>         
                 )
-                break;
+                
 
             case "Monthly Revenue":
                 return(
@@ -56,7 +52,7 @@ class AdminContainer extends React.Component {
                         </Grid>         
                      
                 )
-                break;
+                
             case "Total Sales by Item":
                 return(
                         <Grid>
@@ -69,7 +65,7 @@ class AdminContainer extends React.Component {
                         </Grid>         
                      
                 )
-                break;
+                
             case "Total Sales by Item Count":
                 return(
                         <Grid>
@@ -77,14 +73,12 @@ class AdminContainer extends React.Component {
                             <AdminSideBar setActive={this.setActive}/>
                             </Grid.Column>
                             <Grid.Column width={13}>
-                                <SalesItemChart/>
-                            
-                                
+                                <SalesItemChart/>    
                             </Grid.Column>
                         </Grid>         
                      
                 )
-                break;
+                
             case "Edit Credentials":
                 return(
                         <Grid>
@@ -97,13 +91,12 @@ class AdminContainer extends React.Component {
                         </Grid>         
                      
                 )
-                break;
+                
         
             default:
                 return(
                     <AdminSideBar setActive={this.setActive}/>
                     )
-                break;
         }
     }
 
@@ -115,8 +108,6 @@ function msp(state) {
         user_info: state.user_info
     }
 }
-
-
 
 
 export default connect(msp)(AdminContainer)
