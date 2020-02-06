@@ -1,8 +1,7 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, List, Grid } from 'semantic-ui-react'
 import Moment from 'react-moment';
-import Order from './Order';
 import Receipt from './Receipt';
 import { connect } from "react-redux"
 import Dinero from 'dinero.js'

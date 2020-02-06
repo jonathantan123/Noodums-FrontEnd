@@ -1,16 +1,11 @@
 import React from 'react';
-import ProfleSideBar from '../components/ProfileSideBar';
-import FavoritesPage from '../components/FavoritesPage';
-import { Grid, List } from 'semantic-ui-react'
-import ProfilePage from '../components/ProfilePage';
+import { Grid} from 'semantic-ui-react'
 import {connect} from "react-redux"
-import PastOrderFront from '../components/PastOrderFront';
 import AdminSideBar from '../components/AdminSideBar';
 import RevenueChart from '../components/RevenueChart';
 import OrdersChart from '../components/OrdersChart';
 import ItemPopularityChart from '../components/ItemPopularityChart';
 import EditForm from '../components/EditForm';
-import SalesByItemByMonthChart from '../components/SalesByItemByMonthChart';
 import SalesItemChart from '../components/SalesItemChart';
 
 
@@ -70,7 +65,6 @@ class AdminContainer extends React.Component {
                             </Grid.Column>
                             <Grid.Column width={13}>
                                 <ItemPopularityChart/>
-                                {/* <SalesByItemByMonthChart/> */}
                             </Grid.Column>
                         </Grid>         
                      

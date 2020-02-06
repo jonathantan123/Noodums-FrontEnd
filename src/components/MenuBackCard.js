@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Icon, Image, Button, Menu, Modal, Header } from 'semantic-ui-react'
+import { Card, Icon, Button, Menu, Modal, Header } from 'semantic-ui-react'
 import { connect } from "react-redux"
 import Dinero from 'dinero.js'
 

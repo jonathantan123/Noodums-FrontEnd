@@ -1,5 +1,5 @@
 import React from "react"
-import { Dropdown, Icon, Input, Menu, Grid } from 'semantic-ui-react'
+import { Dropdown, Icon, Menu, Grid } from 'semantic-ui-react'
 
 
 
