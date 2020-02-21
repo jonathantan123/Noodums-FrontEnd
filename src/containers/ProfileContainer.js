@@ -31,7 +31,7 @@ class ProfileContainer extends React.Component {
 
     // addToFaves = () => {
 
-    //     fetch(`http://localhost:3000/api/v1/favorites`, {
+    //     fetch(`https://noodums-app-api.herokuapp.com/api/v1/favorites`, {
     //         method: "POST", 
     //         headers: {
     //             'Accept': 'application/json',

@@ -24,7 +24,7 @@ class CheckoutForm extends React.Component{
       let stripe = window.Stripe("pk_test_nN7xRtMVqkrqGYbZkpHkttjB00xj4HmkBz")
   
         
-         fetch(`http://localhost:3000/api/v1/order_items`, {
+         fetch(`https://noodums-app-api.herokuapp.com/api/v1/order_items`, {
             method: "POST", 
             headers: {
                 'Accept': 'application/json',
@@ -40,7 +40,7 @@ class CheckoutForm extends React.Component{
 
         
         
-         fetch(`http://localhost:3000/charges`, {
+         fetch(`https://noodums-app-api.herokuapp.com/charges`, {
             method: "POST", 
             headers: {
                 'Accept': 'application/json',

@@ -43,7 +43,7 @@ class SignUp extends React.Component {
         && this.emailIsValid(this.state.email_address) 
         && this.phoneIsValid(this.state.phone_number))
      {
-        fetch(`http://localhost:3000/api/v1/users`, {
+        fetch(`https://noodums-app-api.herokuapp.com/api/v1/users`, {
             method: "POST", 
             headers: {
                 'Accept': 'application/json',

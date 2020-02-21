@@ -23,7 +23,7 @@ class Login extends React.Component {
         e.preventDefault() 
 
 
-        fetch(`http://localhost:3000/login`, {
+        fetch(`https://noodums-app-api.herokuapp.com/login`, {
             method: "POST", 
             headers: {
                 'Accept': 'application/json',

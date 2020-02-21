@@ -29,7 +29,7 @@ addToFaves = (item) => {
     debugger
     
 
-    fetch(`http://localhost:3000/api/v1/favorites`, {
+    fetch(`https://noodums-app-api.herokuapp.com/api/v1/favorites`, {
         method: "POST", 
         headers: {
             'Accept': 'application/json',
@@ -68,7 +68,7 @@ addToFaves = (item) => {
  }
 clickHandler = () => {
 
-    fetch(`http://localhost:3000/api/v1/orders/${this.props.order.id}`)
+    fetch(`https://noodums-app-api.herokuapp.com/api/v1/orders/${this.props.order.id}`)
     .then(resp => resp.json()) 
     .then((data) => {
         this.setState({

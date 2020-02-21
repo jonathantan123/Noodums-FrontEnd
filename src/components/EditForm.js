@@ -39,7 +39,7 @@ class EditForm extends React.Component{
         
         if( this.state.phone_number !== "") {
             if(this.phoneIsValid(this.state.phone_number) ){
-                fetch(`http://localhost:3000/api/v1/users/${this.props.user_id}`, {
+                fetch(`https://noodums-app-api.herokuapp.com/api/v1/users/${this.props.user_id}`, {
                     method: "PATCH", 
                     headers: {
                         'Accept': 'application/json',
@@ -58,7 +58,7 @@ class EditForm extends React.Component{
                 }
 
           } else { 
-            fetch(`http://localhost:3000/api/v1/users/${this.props.user_id}`, {
+            fetch(`https://noodums-app-api.herokuapp.com/api/v1/users/${this.props.user_id}`, {
                 method: "PATCH", 
                 headers: {
                     'Accept': 'application/json',

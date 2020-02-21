@@ -19,7 +19,7 @@ class  Order  extends React.Component {
 
    removeFromFaves = () => {
         this.props.removeFromFavorites(this.props.order.id)
-        fetch(`http://localhost:3000/api/v1/favorites/${this.props.order.id}`)
+        fetch(`https://noodums-app-api.herokuapp.com/api/v1/favorites/${this.props.order.id}`)
 
         console.log("hi")
    }  

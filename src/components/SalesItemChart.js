@@ -15,7 +15,7 @@ class SalesItemChart extends React.Component {
 
 componentDidMount() {
     
-        fetch(`http://localhost:3000/api/v1/orders`)
+        fetch(`https://noodums-app-api.herokuapp.com/api/v1/orders`)
         .then(resp => resp.json())
         .then((data) => {   
             this.setState({
