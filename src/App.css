@@ -152,7 +152,7 @@ overflow: hidden;
   align-items: center;
   justify-content: center;
   background-color: lightgray; 
-  opacity: 90%;;
+  /* opacity: 90%;; */
  }
    
  .login-form{
@@ -163,7 +163,7 @@ overflow: hidden;
   align-items: center;
   justify-content: center;
   background-color: lightgray; 
-  opacity: 90%;;
+  /* opacity: 90%;; */
  }
   
  .signup_container {
@@ -185,7 +185,7 @@ overflow: hidden;
   align-items: center;
   justify-content: center;
   background-color: lightgray; 
-  opacity: 90%;;
+  /* opacity: 90%;; */
  }
   
  .login-container {
