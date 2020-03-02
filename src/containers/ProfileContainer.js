@@ -6,8 +6,6 @@ import ProfilePage from '../components/ProfilePage';
 import {connect} from "react-redux"
 import PastOrderFront from '../components/PastOrderFront';
 
-
-
 class ProfileContainer extends React.Component {
 
     state = { 
@@ -16,7 +14,6 @@ class ProfileContainer extends React.Component {
 
     setActive = (e,menuItem) => {
         this.setState( {activeItem: menuItem.name})
-        console.log(this.state)
     }
 
     renderPastOrders = () => {
@@ -29,30 +26,30 @@ class ProfileContainer extends React.Component {
 
     }
 
-    // addToFaves = () => {
+    addToFaves = () => {
 
-    //     fetch(`https://noodums-app-api.herokuapp.com/api/v1/favorites`, {
-    //         method: "POST", 
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //                 item_id: this.props.item.id, 
-    //                 user_id: this.props.user_id
-    //             })
-    //     })
-    //         .then(resp => resp.json())
-    //         .then((data) => {
+        fetch(`https://noodums-app-api.herokuapp.com/api/v1/favorites`, {
+            method: "POST", 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                    item_id: this.props.item.id, 
+                    user_id: this.props.user_id
+                })
+        })
+            .then(resp => resp.json())
+            .then((data) => {
                 
-    //            let item =  this.props.menuItems.find(item => item.id === data.item_id )
-        
-    //            this.props.addToFavorites(item)
+               let item =  this.props.menuItems.find(item => item.id === data.item_id )
+    
+               this.props.addToFavorites(item)
                 
-    //         })
+            })
 
          
-    // }
+    }
 
 
     render() { 

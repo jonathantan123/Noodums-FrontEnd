@@ -66,7 +66,7 @@ overflow: hidden;
   overflow: hidden;
   height: 500px;
   background-image: url("https://images.unsplash.com/photo-1503595787607-3bc1626adf4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
-1`1```1`1   background-size: cover;
+  background-size: cover;
  }
 
  .menu-image-container { 

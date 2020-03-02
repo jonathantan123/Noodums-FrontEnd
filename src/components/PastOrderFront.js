@@ -45,7 +45,7 @@ addToFaves = (item) => {
 
                 
            let itemToFind =  this.props.menuItems.find(itemToFind => itemToFind.id === data.item_id )
-           debugger    
+               
 
            this.props.addToFavorites(itemToFind)
             
@@ -54,7 +54,7 @@ addToFaves = (item) => {
 }
 
  renderButton = (item) => { 
-     debugger
+     
      
         
         let x = this.props.favorites.find(fave => fave.id === item.id) 
