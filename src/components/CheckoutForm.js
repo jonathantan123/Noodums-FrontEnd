@@ -22,8 +22,7 @@ class CheckoutForm extends React.Component{
     submitHandler= () => {
 
       let stripe = window.Stripe("pk_test_nN7xRtMVqkrqGYbZkpHkttjB00xj4HmkBz")
-  
-        
+ 
          fetch(`https://noodums-app-api.herokuapp.com/api/v1/order_items`, {
             method: "POST", 
             headers: {
@@ -37,8 +36,6 @@ class CheckoutForm extends React.Component{
                 subtotal: this.props.subtotal
             })      
         })
-
-        
         
          fetch(`https://noodums-app-api.herokuapp.com/charges`, {
             method: "POST", 
@@ -54,12 +51,9 @@ class CheckoutForm extends React.Component{
         .then((data) => {
 
           stripe.redirectToCheckout({
-            
             sessionId: data.id
           })
 
-          
-          console.log(data)
         })
 
     }
@@ -110,13 +104,9 @@ class CheckoutForm extends React.Component{
             </Form>
             </div>
           </div>
-        )
-
-       
+        ) 
     }
-
 }
-
 
 function msp(state) {
     return (
