@@ -8,14 +8,13 @@ import Dinero from 'dinero.js'
 
 class RevenueChart extends React.Component {
 
-  
   componentDidMount() {
     fetch(`https://noodums-app-api.herokuapp.com/api/v1/orders`)
     .then(resp => resp.json())
     .then((data) => {
       
       this.props.setRevenue(data.revenue) 
-      // this.props.setNumberOfrevenue(data.number_of_revenue)
+    
     })
   }
   
