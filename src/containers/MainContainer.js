@@ -66,12 +66,17 @@ renderCart = () => {
 }
 
 renderProfile = () => {
-    return (
+    return(
         <React.Fragment>
-            <ProfileContainer/>
-       </React.Fragment>
-    )
-}
+            {this.props.user_id !== 2 ?
+             <ProfileContainer/>     
+            :
+            <MenuContainer items={this.state.menuArray}/>
+            }
+        </React.Fragment>
+    ) 
+    }
+
 renderCheckout = () => {
     return (
         <StripeProvider apiKey="pk_test_nN7xRtMVqkrqGYbZkpHkttjB00xj4HmkBz">
@@ -128,4 +133,10 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(null,mapDispatchToProps)(MainContainer)
+function msp(state) {
+    return {
+        user_id: state.user_id
+    }
+}
+
+export default connect(msp,mapDispatchToProps)(MainContainer)
