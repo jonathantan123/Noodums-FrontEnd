@@ -1,4 +1,6 @@
 
+///// global user id set at 2 === guest 
+///// Admin User id ==== 1 
 
 const defaultState = {
     menuItems: [], 

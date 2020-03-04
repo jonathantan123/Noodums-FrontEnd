@@ -37,6 +37,7 @@ class EditForm extends React.Component{
       submitHandler=(e) => {
         e.preventDefault()
         
+        
         if( this.state.phone_number !== "") {
             if(this.phoneIsValid(this.state.phone_number) ){
                 fetch(`https://noodums-app-api.herokuapp.com/api/v1/users/${this.props.user_id}`, {

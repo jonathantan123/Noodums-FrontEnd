@@ -118,7 +118,6 @@ renderDashboard = () => {
             </div>
         )
     }
-
 }
 
 function mapDispatchToProps(dispatch) {

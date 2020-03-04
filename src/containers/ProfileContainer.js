@@ -46,9 +46,7 @@ class ProfileContainer extends React.Component {
     
                this.props.addToFavorites(item)
                 
-            })
-
-         
+            }) 
     }
 
 
@@ -110,24 +108,10 @@ class ProfileContainer extends React.Component {
 }
 
 function msp(state) {
-
     return {
         user_info: state.user_info
     }
 }
-
-
-
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         addToFavorites: (item) => {
-//             dispatch({type: "ADD_TO_FAVORITES", payload: item })
-//         },
-       
-//     }
-// }
-
-
 
 
 export default connect(msp)(ProfileContainer)

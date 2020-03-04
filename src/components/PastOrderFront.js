@@ -26,8 +26,6 @@ toggleClick = () => {
 }
 
 addToFaves = (item) => {
-    debugger
-    
 
     fetch(`https://noodums-app-api.herokuapp.com/api/v1/favorites`, {
         method: "POST", 

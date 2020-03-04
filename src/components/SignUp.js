@@ -4,8 +4,6 @@ import { Form, Input, Divider, Grid} from 'semantic-ui-react'
 import {connect} from "react-redux"
 import { Redirect} from 'react-router-dom'
 
-
-
 class SignUp extends React.Component {
 
     state = { 
@@ -26,18 +24,15 @@ class SignUp extends React.Component {
           return /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(number)
       }
 
-      
     changeHandler = (e) => {
         this.setState({
             [e.target.id] : e.target.value
         }) 
     }
   
-
     submitHandler=(e) => {
         e.preventDefault()
         
-
     if (this.state.email_address === this.state.confirm_email_address 
         && this.state.password === this.state.confirm_password 
         && this.emailIsValid(this.state.email_address) 
@@ -63,13 +58,9 @@ class SignUp extends React.Component {
             if(data.errors) {
                 alert(data.errors[0])
             } else {
-                
-
-
                 this.props.login(data.data.id)
                 this.props.setFavorites(data.data.attributes.items)
                 this.props.getUserInfo(data.data.attributes)
-
             }
         })
 
