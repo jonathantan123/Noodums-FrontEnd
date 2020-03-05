@@ -8,8 +8,9 @@ import CheckoutForm from '../components/CheckoutForm';
 import ProfileContainer from './ProfileContainer';
 import { Route, Switch } from 'react-router-dom'
 import { connect } from "react-redux"
-import {Elements, StripeProvider} from 'react-stripe-elements';
+import {Elements, StripeProvider, Redirect} from 'react-stripe-elements';
 import AdminContainer from './AdminContainer';
+
 
 class MainContainer extends React.Component {
 
