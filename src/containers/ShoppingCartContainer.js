@@ -9,20 +9,17 @@ import Dinero from 'dinero.js'
 class ShoppingCartContainer extends React.Component {
 
     subTotal= () => {
-
         let subtotal = Dinero({amount: this.props.cart.reduce((sum, obj) => {
             return  sum + obj.price*(obj.quantity) 
          }, 0)  }) 
 
          this.props.setSubTotal(subtotal.getAmount())
 
-
-        return subtotal
-      
+        return subtotal 
     }
 
-    tax =() => {
-       return this.subTotal().multiply(.0875)
+    tax =(salesTax=.0875 ) => {
+       return this.subTotal().multiply(salesTax)
       }
 
     total = () => {
@@ -51,18 +48,18 @@ class ShoppingCartContainer extends React.Component {
                     <Item.Group>
                         {this.renderShoppingCart()}
                     </Item.Group>
-                <h2>SubTotal: ---- {this.subTotal().toFormat('$0.00')}</h2>
-                <h2>Tax: ---- {this.tax().toFormat('$0.00')} </h2>
-                <h2>Total: ----{this.total().toFormat('$0.00')} </h2>
-                <br></br>
+                    <h2>SubTotal: ---- {this.subTotal().toFormat('$0.00')}</h2>
+                    <h2>Tax: ---- {this.tax().toFormat('$0.00')} </h2>
+                    <h2>Total: ----{this.total().toFormat('$0.00')} </h2>
+                    <br></br>
                     <Button size="small"
                     as={ Link } name='checkout' to='/checkout'
                     > Checkout</Button>
                 </div>
             </div>
-        )
+         )
+        }
     }
-}
 
 function msp(state) {
     return (
@@ -82,7 +79,4 @@ function mapDispatchToProps(dispatch) {
         }
     }
 }
-
-
-
 export default connect(msp, mapDispatchToProps) (ShoppingCartContainer)

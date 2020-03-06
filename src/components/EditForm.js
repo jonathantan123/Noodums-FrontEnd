@@ -70,9 +70,7 @@ class EditForm extends React.Component{
                         password: this.state.password
                     })
             })
-
           }
-
         }
 
     render() {
@@ -153,7 +151,6 @@ class EditForm extends React.Component{
             }
             </React.Fragment>
         )}
-
 }
 
 

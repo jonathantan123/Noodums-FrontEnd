@@ -13,10 +13,8 @@ class MenuCardFront extends React.Component{
         this.setState({
             clicked: !this.state.clicked
         })
-
     }
 
- 
     render() {
         return (
             <React.Fragment>
@@ -24,16 +22,13 @@ class MenuCardFront extends React.Component{
             this.state.clicked? 
                 <MenuBackCard clickHandler={this.clickHandler} item={this.props.item}/>
             :
-            <Card>
-                
-            <Image  onClick={this.clickHandler} src={`${this.props.item.image}`} wrapped ui={true} />
+            <Card> 
+                <Image  onClick={this.clickHandler} src={`${this.props.item.image}`} wrapped ui={true} />
             </Card>
         }
             </React.Fragment>
         )
     }
-
 }
-
 
   export default MenuCardFront 

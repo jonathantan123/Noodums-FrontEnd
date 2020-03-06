@@ -16,44 +16,17 @@ class ProfileContainer extends React.Component {
         this.setState( {activeItem: menuItem.name})
     }
 
-    renderPastOrders = () => {
-         
+    renderPastOrders = () => {  
         return( 
             this.props.user_info.orders.map((order) => {
                 return (
                     <PastOrderFront order={order}/>
           )}))
-
     }
-
-    addToFaves = () => {
-
-        fetch(`https://noodums-app-api.herokuapp.com/api/v1/favorites`, {
-            method: "POST", 
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                    item_id: this.props.item.id, 
-                    user_id: this.props.user_id
-                })
-        })
-            .then(resp => resp.json())
-            .then((data) => {
-                
-               let item =  this.props.menuItems.find(item => item.id === data.item_id )
-    
-               this.props.addToFavorites(item)
-                
-            }) 
-    }
-
 
     render() { 
 
         switch (this.state.activeItem) {
-
             case "Favorite":
                 return(
                          <Grid>
@@ -65,7 +38,6 @@ class ProfileContainer extends React.Component {
                             </Grid.Column>
                         </Grid>         
                 )
-                
 
             case "View/Edit Profile":
                 return(
@@ -76,13 +48,10 @@ class ProfileContainer extends React.Component {
                             <Grid.Column width={13}>
                             <ProfilePage/> 
                             </Grid.Column>
-                        </Grid>         
-                     
+                        </Grid>             
                 )
-            
-
-            case "Past Orders":
-                    
+        
+            case "Past Orders":  
                 return(
                     <Grid>
                         <Grid.Column width={3}>
@@ -92,20 +61,17 @@ class ProfileContainer extends React.Component {
                          <List animated verticalAlign='middle'>  
                             {this.renderPastOrders()}
                          </List>
-
                         </Grid.Column>
                 </Grid>         
                 )
                
-        
             default:
                 return(
                     <ProfleSideBar setActive={this.setActive}/>
                 )
+         }
         }
     }
-
-}
 
 function msp(state) {
     return {

@@ -17,14 +17,12 @@ class AdminContainer extends React.Component {
         submitted: true 
     }
 
-    setActive = (e, menuItem) => {
-        console.log(menuItem)
+    setActive = (menuItem) => {
         this.setState( {activeItem: menuItem.name})
-        console.log(this.state)
     }
 
     render() { 
-        console.log(this.state.activeItem)
+       
         switch (this.state.activeItem) {
 
             case "Monthly Orders":
@@ -41,6 +39,7 @@ class AdminContainer extends React.Component {
                 
 
             case "Monthly Revenue":
+                console.log("rendering revenue")
                 return(
                         <Grid>
                             <Grid.Column width={3}>
@@ -92,7 +91,6 @@ class AdminContainer extends React.Component {
                      
                 )
                 
-        
             default:
                 return(
                     <AdminSideBar setActive={this.setActive}/>

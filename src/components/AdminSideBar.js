@@ -21,7 +21,7 @@ return (
                         <Dropdown.Item icon='shopping basket' text="Total Sales by Item Count" name="Total Sales by Item Count" onClick={props.setActive} />
                     </Dropdown.Menu>
                     </Dropdown>
-                    
+    
                 <Menu.Item
                 name="Edit Credentials"
                 onClick={props.setActive}

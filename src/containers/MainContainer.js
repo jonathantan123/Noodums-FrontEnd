@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from "../components/Login"
 import SignUp from "../components/SignUp"
-import MenuContainer from './MenuContainer';
+import LandingPage from './LandingPage';
 import MenuPage from './MenuPage';
 import ShoppingCartContainer from './ShoppingCartContainer';
 import CheckoutForm from '../components/CheckoutForm';
@@ -23,9 +23,7 @@ class MainContainer extends React.Component {
         fetch("https://noodums-app-api.herokuapp.com/api/v1/items")
         .then(resp => resp.json()) 
         .then((data) => {
-
             this.props.setMenuArray(data)
-            
             this.setState({
                 menuArray: data,
                 isLoading: !this.state.isLoading
@@ -34,37 +32,6 @@ class MainContainer extends React.Component {
     } 
 
 ///------------Functions for components To Render Per Route ------------------------///
-renderLanding = () => {
-    return (
-        <React.Fragment>
-            <MenuContainer items={this.state.menuArray}/>
-       </React.Fragment>
-    )
-}
-
-renderLogin = () => {
-    return (
-        <React.Fragment>
-            <Login/>
-       </React.Fragment>
-    )
-}
-
-renderSignup = () => {
-    return (
-        <React.Fragment>
-            <SignUp/>
-       </React.Fragment>
-    )
-}
-
-renderCart = () => {
-    return (
-        <React.Fragment>
-            <ShoppingCartContainer/>
-       </React.Fragment>
-    )
-}
 
 renderProfile = () => {
     return(
@@ -72,7 +39,7 @@ renderProfile = () => {
             {this.props.user_id !== 2 ?
              <ProfileContainer/>     
             :
-            <MenuContainer items={this.state.menuArray}/>
+            <LandingPage/>
             }
         </React.Fragment>
     ) 
@@ -87,22 +54,6 @@ renderCheckout = () => {
        </StripeProvider>
     )
 }
-renderMenu = () => {
-    return (
-    <React.Fragment>
-        <MenuPage/>
-   </React.Fragment>
-        
-    )
-}
-renderDashboard = () => {
-    return (
-    <React.Fragment>
-        <AdminContainer/>
-   </React.Fragment>
-        
-    )
-}
 
 ///-----------------------Routes--------------------------------------///
     render() {
@@ -112,14 +63,35 @@ renderDashboard = () => {
             : 
             <div >
                 <Switch>
-                 <Route  path="/login" render={this.renderLogin}/>
-                 <Route  path="/dashboard" render={this.renderDashboard}/>
-                 <Route  path="/menu" render={this.renderMenu}/>
-                 <Route  path="/signup" render={this.renderSignup}/>
-                 <Route  path="/cart" render={this.renderCart}/>
+
+                 <Route  path="/login">
+                    <Login/>
+                </Route>
+
+                 <Route  path="/dashboard">
+                  <AdminContainer/> 
+                 </Route>
+
+                 <Route  path="/menu">
+                    <MenuPage/>
+                </Route> 
+
+                 <Route  path="/signup">
+                    <SignUp/>
+                 </Route>
+
+                 <Route  path="/cart">
+                    <ShoppingCartContainer/>
+                 </Route>
+
                  <Route  path="/profile" render={this.renderProfile}/>
+
                  <Route  path="/checkout" render={this.renderCheckout}/>
-                 <Route  exact path="/" render={this.renderLanding}/>
+
+                 <Route  exact path="/">
+                     <LandingPage/>
+                </Route>
+
                 </Switch>
             </div>
         )

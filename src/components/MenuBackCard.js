@@ -15,12 +15,9 @@ class  MenuBackCard extends React.Component {
         })
     }
     
- 
     addToCart = () => {
-        
         this.props.addToCart(this.props.item.id)
         this.props.clickHandler()
-        
     }
     
     formatPrice = () => {
@@ -33,52 +30,53 @@ render () {
     return (
         <Card>
             <Card.Content onClick={this.props.clickHandler}>
-    <Card.Header  textAlign='center'>{this.props.item.name}</Card.Header>
-                <Card.Description >
+            <Card.Header  textAlign='center'>{this.props.item.name}</Card.Header>
+            <Card.Description >
                     {this.props.item.description}
-                </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                      <Menu secondary icon>
-                        <Menu.Item 
-                        name='Price'
-                        >
-                        {this.formatPrice()}
-                        </Menu.Item>
+            </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+                <Menu secondary icon>
+                    <Menu.Item 
+                    name='Price'
+                    >
+                    {this.formatPrice()}
+                    </Menu.Item>
 
-                        <Menu.Item 
+                    <Menu.Item 
                         name='shopping cart'
                         position='right'
                         >
-                            <Modal trigger={<Button 
-                                            onClick={this.clickHandler}
-                                            animated='fade'>
-                                            <Button.Content hidden>Add</Button.Content>
-                                            <Button.Content visible>
-                                             <Icon name='cart plus' />
-                                            </Button.Content>
-                                            </Button>} basic size='small'>
-                                <Header icon='cart plus' content='Add to Cart' />
-                                <Modal.Content>
-                                <p>
-                                    Would you like to add this item to your cart? 
-                                </p>
-                                </Modal.Content>
-                                <Modal.Actions>
-                                <Button color='green' inverted
-                                onClick={this.addToCart}>
-                                    <Icon name='checkmark' /> Yes!
-                                </Button>
-                                </Modal.Actions>
-                            </Modal>
-                        </Menu.Item>
-                      </Menu>
+                        <Modal 
+                            trigger={<Button 
+                            onClick={this.clickHandler}
+                            animated='fade'>
 
-                 </Card.Content>
-        </Card>
+                            <Button.Content hidden>Add</Button.Content>
+                            <Button.Content visible>
+                                <Icon name='cart plus' />
+                            </Button.Content>
+                            </Button>} basic size='small'>
+                            <Header icon='cart plus' content='Add to Cart' />
+                            <Modal.Content>
+                            <p>Would you like to add this item to your cart? </p>
+                            </Modal.Content>
+                            <Modal.Actions>
+                            <Button 
+                                color='green' 
+                                inverted 
+                                onClick={this.addToCart}>
+                                <Icon name='checkmark'/> 
+                                Yes!
+                            </Button>
+                            </Modal.Actions>
+                        </Modal>
+                      </Menu.Item>
+                    </Menu>
+                </Card.Content>
+         </Card>
         )
-}
-  
+     }
     }
 
     function mapDispatchToProps(dispatch) {  

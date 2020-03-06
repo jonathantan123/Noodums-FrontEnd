@@ -33,47 +33,42 @@ class SignUp extends React.Component {
     submitHandler=(e) => {
         e.preventDefault()
         
-    if (this.state.email_address === this.state.confirm_email_address 
-        && this.state.password === this.state.confirm_password 
-        && this.emailIsValid(this.state.email_address) 
-        && this.phoneIsValid(this.state.phone_number))
-     {
-        fetch(`https://noodums-app-api.herokuapp.com/api/v1/users`, {
-            method: "POST", 
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                    email_address: this.state.email_address, 
-                    password: this.state.password,
-                    first_name: this.state.first_name,
-                    last_name: this.state.last_name, 
-                    phone_number: this.state.phone_number
-                })
-        })
-        .then(resp => resp.json())
-        .then((data) => {
-             
-            if(data.errors) {
-                alert(data.errors[0])
-            } else {
-                this.props.login(data.data.id)
-                this.props.setFavorites(data.data.attributes.items)
-                this.props.getUserInfo(data.data.attributes)
-            }
-        })
-
-    } else { 
-        alert( "Please enter a valid email address or phone number/ ensure passwords and email adresses match ")
-    }
-
-          
-    }
+        if (this.state.email_address === this.state.confirm_email_address 
+            && this.state.password === this.state.confirm_password 
+            && this.emailIsValid(this.state.email_address) 
+            && this.phoneIsValid(this.state.phone_number))
+        {
+            fetch(`https://noodums-app-api.herokuapp.com/api/v1/users`, {
+                method: "POST", 
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                        email_address: this.state.email_address, 
+                        password: this.state.password,
+                        first_name: this.state.first_name,
+                        last_name: this.state.last_name, 
+                        phone_number: this.state.phone_number
+                    })
+            })
+            .then(resp => resp.json())
+            .then((data) => {
+                if(data.errors) {
+                    alert(data.errors[0])
+                } else {
+                    this.props.login(data.data.id)
+                    this.props.setFavorites(data.data.attributes.items)
+                    this.props.getUserInfo(data.data.attributes)
+                }
+            })
+        } else { 
+            alert( "Please enter a valid email address or phone number/ ensure passwords and email adresses match ")
+        }
+     }
 
     render() {
         return (
-
             <div className="signup_container">
                 <div className="signup_form">
                 <Form onSubmit={this.submitHandler}>
@@ -158,14 +153,11 @@ class SignUp extends React.Component {
                     :
                     null 
                     }
-
                 </div>
           </div>
-
- 
         )
+     }
     }
-}
 
 
 function mapStateToProps(state) {

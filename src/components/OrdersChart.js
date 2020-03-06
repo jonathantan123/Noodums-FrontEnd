@@ -13,8 +13,6 @@ class OrdersChart extends React.Component {
         .then(resp => resp.json())
         .then((data) => {
       
-            
-            // this.props.setRevenue(data.revenue) 
             this.props.setNumberOfOrders(data.number_of_orders)
         })
     }

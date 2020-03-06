@@ -3,15 +3,8 @@ import MenuCardFront from '../components/MenuCardFront';
 import { connect } from "react-redux"
 import { Header } from 'semantic-ui-react'
 
-class MenuContainer extends React.Component {
+class LandingPage extends React.Component {
 
-    renderMenuCards = () => {
-        return(
-        this.props.items.map((item) => {
-            return (<MenuCardFront item={item}/>)
-        }))
-    }
-    
 
     render() {
      
@@ -25,7 +18,7 @@ class MenuContainer extends React.Component {
                     <Header style={{color: "white"}}as="h1">This is Noodums</Header> 
                 </div> 
             </div>
-           <br></br><br></br>
+         
            </React.Fragment>
         )
     }
@@ -39,4 +32,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(MenuContainer)
+export default connect(mapStateToProps)(LandingPage)

@@ -4,12 +4,8 @@ import { connect } from "react-redux"
 import Dinero from 'dinero.js'
 
 
-
-
 function Receipt (props) {
 
-
-    
     let formatPrice = () => {
         let price = Dinero({amount: props.item.price})
         return price.toFormat(`$0.00`) 
@@ -17,9 +13,7 @@ function Receipt (props) {
 
     
     let findQuantity = () => {
-
         let item =  props.data.order_items.find(o => o.item_id === props.item.id )
-
         return item.quantity
     }
 

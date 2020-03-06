@@ -40,8 +40,6 @@ render() {
                     null
                 }
             </React.Fragment>
-    
-    
         </React.Fragment>    
         )       
     }
