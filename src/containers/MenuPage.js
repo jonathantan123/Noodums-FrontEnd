@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuCardFront from '../components/MenuCardFront';
-import MenuBackCard from '../components/MenuBackCard';
+import MenuDescription from '../components/MenuDescription';
 import { connect } from "react-redux"     
 import { CardGroup } from 'semantic-ui-react'
 
@@ -14,12 +14,13 @@ class MenuPage extends React.Component {
         }))
     }
 
-    renderMenuCardsBack = () => {
+    renderMenuDescriptions = () => {
         return(
         this.props.menuItems.map((item) => {
-            return (<MenuBackCard item={item}/>)
+            return (<MenuDescription item={item}/>)
         }))
     }
+    
 
     render() { 
         return (
@@ -32,7 +33,7 @@ class MenuPage extends React.Component {
                     <div className="item-container">
                         <CardGroup  itemsPerRow={4}>
                             {this.renderMenuCardsFront()}
-                            {this.renderMenuCardsBack()}
+                            {this.renderMenuDescriptions()}
                         </CardGroup>
                     </div>
             </div>
@@ -42,7 +43,7 @@ class MenuPage extends React.Component {
                 <div className="item-container">
                     <CardGroup  itemsPerRow={4}>
                         {this.renderMenuCardsFront()}
-                        {this.renderMenuCardsBack()}
+                        {this.renderMenuDescriptions()}
                     </CardGroup>
                 </div>
             </div>
