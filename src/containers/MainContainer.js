@@ -1,143 +1,137 @@
-import React from 'react';
-import Login from "../components/Login"
-import SignUp from "../components/SignUp"
-import MenuContainer from './MenuContainer';
-import MenuPage from './MenuPage';
-import ShoppingCartContainer from './ShoppingCartContainer';
-import CheckoutForm from '../components/CheckoutForm';
-import ProfileContainer from './ProfileContainer';
-import { Route, Switch } from 'react-router-dom'
-import { connect } from "react-redux"
-import {Elements, StripeProvider, Redirect} from 'react-stripe-elements';
-import AdminContainer from './AdminContainer';
-
+import React from "react";
+import Login from "../components/Login";
+import SignUp from "../components/SignUp";
+import MenuContainer from "./MenuContainer";
+import MenuPage from "./MenuPage";
+import ShoppingCartContainer from "./ShoppingCartContainer";
+import CheckoutForm from "../components/CheckoutForm";
+import ProfileContainer from "./ProfileContainer";
+import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import { Elements, StripeProvider, Redirect } from "react-stripe-elements";
+import AdminContainer from "./AdminContainer";
 
 class MainContainer extends React.Component {
+  state = {
+    menuArray: [],
+    isLoading: true
+  };
 
-    state = {
-        menuArray: [], 
-        isLoading: true 
-    }
+  componentDidMount() {
+    fetch("https://noodums-app-api.herokuapp.com/api/v1/items")
+      .then(resp => resp.json())
+      .then(data => {
+        this.props.setMenuArray(data);
 
-    componentDidMount() {
-        fetch("https://noodums-app-api.herokuapp.com/api/v1/items")
-        .then(resp => resp.json()) 
-        .then((data) => {
+        this.setState({
+          menuArray: data,
+          isLoading: !this.state.isLoading
+        });
+      });
+  }
 
-            this.props.setMenuArray(data)
-            
-            this.setState({
-                menuArray: data,
-                isLoading: !this.state.isLoading
-            })
-        })
-    } 
-
-///------------Functions for components To Render Per Route ------------------------///
-renderLanding = () => {
+  ///------------Functions for components To Render Per Route ------------------------///
+  renderLanding = () => {
     return (
-        <React.Fragment>
-            <MenuContainer items={this.state.menuArray}/>
-       </React.Fragment>
-    )
-}
+      <React.Fragment>
+        <MenuContainer items={this.state.menuArray} />
+      </React.Fragment>
+    );
+  };
 
-renderLogin = () => {
+  renderLogin = () => {
     return (
-        <React.Fragment>
-            <Login/>
-       </React.Fragment>
-    )
-}
+      <React.Fragment>
+        <Login />
+      </React.Fragment>
+    );
+  };
 
-renderSignup = () => {
+  renderSignup = () => {
     return (
-        <React.Fragment>
-            <SignUp/>
-       </React.Fragment>
-    )
-}
+      <React.Fragment>
+        <SignUp />
+      </React.Fragment>
+    );
+  };
 
-renderCart = () => {
+  renderCart = () => {
     return (
-        <React.Fragment>
-            <ShoppingCartContainer/>
-       </React.Fragment>
-    )
-}
+      <React.Fragment>
+        <ShoppingCartContainer />
+      </React.Fragment>
+    );
+  };
 
-renderProfile = () => {
-    return(
-        <React.Fragment>
-            {this.props.user_id !== 2 ?
-             <ProfileContainer/>     
-            :
-            <MenuContainer items={this.state.menuArray}/>
-            }
-        </React.Fragment>
-    ) 
-    }
+  renderProfile = () => {
+    return (
+      <React.Fragment>
+        {this.props.user_id !== 2 ? (
+          <ProfileContainer />
+        ) : (
+          <MenuContainer items={this.state.menuArray} />
+        )}
+      </React.Fragment>
+    );
+  };
 
-renderCheckout = () => {
+  renderCheckout = () => {
     return (
-        <StripeProvider apiKey="pk_test_nN7xRtMVqkrqGYbZkpHkttjB00xj4HmkBz">
-            <Elements>
-                 <CheckoutForm />
-          </Elements>
-       </StripeProvider>
-    )
-}
-renderMenu = () => {
+      <StripeProvider apiKey="pk_test_nN7xRtMVqkrqGYbZkpHkttjB00xj4HmkBz">
+        <Elements>
+          <CheckoutForm />
+        </Elements>
+      </StripeProvider>
+    );
+  };
+  renderMenu = () => {
     return (
-    <React.Fragment>
-        <MenuPage/>
-   </React.Fragment>
-        
-    )
-}
-renderDashboard = () => {
+      <React.Fragment>
+        <MenuPage />
+      </React.Fragment>
+    );
+  };
+  renderDashboard = () => {
     return (
-    <React.Fragment>
-        <AdminContainer/>
-   </React.Fragment>
-        
-    )
-}
+      <React.Fragment>
+        <AdminContainer />
+      </React.Fragment>
+    );
+  };
 
-///-----------------------Routes--------------------------------------///
-    render() {
-        return (
-            this.state.isLoading? 
-            <div> Website is loading......</div>
-            : 
-            <div >
-                <Switch>
-                 <Route  path="/login" render={this.renderLogin}/>
-                 <Route  path="/dashboard" render={this.renderDashboard}/>
-                 <Route  path="/menu" render={this.renderMenu}/>
-                 <Route  path="/signup" render={this.renderSignup}/>
-                 <Route  path="/cart" render={this.renderCart}/>
-                 <Route  path="/profile" render={this.renderProfile}/>
-                 <Route  path="/checkout" render={this.renderCheckout}/>
-                 <Route  exact path="/" render={this.renderLanding}/>
-                </Switch>
-            </div>
-        )
-    }
+  ///-----------------------Routes--------------------------------------///
+  render() {
+    return this.state.isLoading ? (
+      <div> Website is loading......</div>
+    ) : (
+      <div>
+        <Switch>
+          <Route path="/login" render={this.renderLogin} />
+          <Route path="/dashboard" render={this.renderDashboard} />
+          <Route path="/menu" render={this.renderMenu} />
+          <Route path="/signup" render={this.renderSignup} />
+          <Route path="/cart" render={this.renderCart} />
+          <Route path="/profile" render={this.renderProfile} />
+          <Route path="/checkout" render={this.renderCheckout} />
+          <Route exact path="/" render={this.renderLanding} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-        setMenuArray: (data) => {
-            dispatch({type: "SET_MENU_ARRAY", payload: data })
-        }
+  return {
+    setMenuArray: data => {
+      dispatch({ type: "SET_MENU_ARRAY", payload: data });
     }
+  };
 }
 
 function msp(state) {
-    return {
-        user_id: state.user_id
-    }
+  return {
+    user_id: state.user_id
+  };
 }
 
-export default connect(msp,mapDispatchToProps)(MainContainer)
+export default connect(msp, mapDispatchToProps)(MainContainer);

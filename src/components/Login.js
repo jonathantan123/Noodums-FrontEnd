@@ -1,125 +1,113 @@
-
-import React from 'react';
-import { connect } from "react-redux"
-import { Redirect} from 'react-router-dom'
-import { Form, Input, Grid} from 'semantic-ui-react'
-
+import React from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { Form, Input, Grid } from "semantic-ui-react";
 
 class Login extends React.Component {
+  state = {
+    username: "",
+    password: ""
+  };
 
-    state = { 
-        username: "", 
-        password: ""
-    }
+  changeHandler = e => {
+    this.setState({
+      [e.target.id]: e.target.value
+    });
+  };
+  // on submit fetch and find/set the id of the current user to redux
 
-    changeHandler = (e) => {
-        this.setState({
-            [e.target.id] : e.target.value
-        })
-    }
-    // on submit fetch and find/set the id of the current user to redux 
+  submitHandler = e => {
+    e.preventDefault();
 
-    submitHandler=(e) => {
-        e.preventDefault() 
-
-
-        fetch(`https://noodums-app-api.herokuapp.com/login`, {
-            method: "POST", 
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                    email_address: this.state.username, 
-                    password: this.state.password
-                })
-        })
-            .then(resp => resp.json())
-            .then(data => {
-
-                if(data.errors) {
-                    alert("Incorrect Username/password")
-                } else {    
-                    this.props.login(parseInt(data.data.id)) 
-                    this.props.setFavorites(data.data.attributes.items)
-                    this.props.getUserInfo(data.data.attributes)
-                }
-            })  
-            
-    }
-
-    render() {
-        return (
-            <div className="login-container">
-               <div className="login-form">
-                <Form onSubmit={this.submitHandler}>
-                    <Form.Field
-                        id="username"
-                        control={Input}
-                        onChange={this.changeHandler}
-                        label='Email Address'
-                        placeholder='Email Address'
-                    />
-                     <Form.Field
-                        id='password'
-                        control={Input}
-                        onChange={this.changeHandler}
-                        label='Password'
-                        type='password'
-                        placeholder='Password'
-                    />
-
-                        <Grid>
-                            <Grid.Row centered>
-                            <Form.Button >Log In </Form.Button>
-                            </Grid.Row>
-                        </Grid>
-                           
-                    
-                        {this.props.user_id ===  1 ?
-                        <React.Fragment>
-                            <Redirect to="/dashboard"/>
-                        </React.Fragment>
-                            :
-                            <React.Fragment>
-                                {this.props.user_id !== 2 ?
-                                    <React.Fragment>
-                                    <Redirect to="/profile"/>
-                                    </React.Fragment>
-                                
-                                :
-                                    null
-                                }
-                           </React.Fragment>
-                        }
-                         </Form>
-            </div>
-                    </div>
-        )
-    }
-} 
-
-function mapDispatchToProps(dispatch) {  
-    return { 
-
-        login: (id)=> {
-            dispatch({type: "LOGIN", payload: id })
-        }, 
-
-        setFavorites: (favorites) => {
-            dispatch({type: "SET_FAVORITES", payload: favorites})
-        },
-
-        getUserInfo: (data) => {
-            dispatch({type: "GET_USER_INFO", payload: data})
+    fetch(`https://noodums-app-api.herokuapp.com/login`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email_address: this.state.username,
+        password: this.state.password
+      })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        if (data.errors) {
+          alert("Incorrect Username/password");
+        } else {
+          this.props.login(parseInt(data.data.id));
+          this.props.setFavorites(data.data.attributes.items);
+          this.props.getUserInfo(data.data.attributes);
         }
+      });
+  };
+
+  render() {
+    return (
+      <div className="login-container">
+        <div className="login-form">
+          <Form onSubmit={this.submitHandler}>
+            <Form.Field
+              id="username"
+              control={Input}
+              onChange={this.changeHandler}
+              label="Email Address"
+              placeholder="Email Address"
+            />
+            <Form.Field
+              id="password"
+              control={Input}
+              onChange={this.changeHandler}
+              label="Password"
+              type="password"
+              placeholder="Password"
+            />
+
+            <Grid>
+              <Grid.Row centered>
+                <Form.Button>Log In </Form.Button>
+              </Grid.Row>
+            </Grid>
+
+            {this.props.user_id === 1 ? (
+              <React.Fragment>
+                <Redirect to="/dashboard" />
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                {this.props.user_id !== 2 ? (
+                  <React.Fragment>
+                    <Redirect to="/profile" />
+                  </React.Fragment>
+                ) : null}
+              </React.Fragment>
+            )}
+          </Form>
+        </div>
+      </div>
+    );
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    login: id => {
+      dispatch({ type: "LOGIN", payload: id });
+    },
+
+    setFavorites: favorites => {
+      dispatch({ type: "SET_FAVORITES", payload: favorites });
+    },
+
+    getUserInfo: data => {
+      dispatch({ type: "GET_USER_INFO", payload: data });
     }
+  };
 }
 
 function mapStateToProps(state) {
-    return { 
-        user_id: state.user_id
-    }
+  return {
+    user_id: state.user_id
+  };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
-
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
