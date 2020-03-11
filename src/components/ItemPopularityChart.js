@@ -3,6 +3,8 @@ import { ResponsiveBar } from "@nivo/bar";
 import { connect } from "react-redux";
 
 class ItemPopularityChart extends React.Component {
+  //// should move to login
+
   componentDidMount() {
     fetch(`https://noodums-app-api.herokuapp.com/api/v1/orders`)
       .then(resp => resp.json())

@@ -13,8 +13,6 @@ class PastOrderFront extends React.Component {
     subtotal: ""
   };
 
-  /// fetch details for individual order
-
   toggleClick = () => {
     this.setState({
       clicked: !this.state.clicked
@@ -38,22 +36,26 @@ class PastOrderFront extends React.Component {
         let itemToFind = this.props.menuItems.find(
           itemToFind => itemToFind.id === data.item_id
         );
-
         this.props.addToFavorites(itemToFind);
       });
   };
 
+  /// conditionally render button based on if user already has save as favorites
   renderButton = item => {
-    let x = this.props.favorites.find(fave => fave.id === item.id);
+    let exisitingFavorite = this.props.favorites.find(
+      fave => fave.id === item.id
+    );
 
-    if (x === undefined) {
+    if (exisitingFavorite === undefined) {
       return (
         <Button onClick={() => this.addToFaves(item)}>Add to Favorites</Button>
       );
     } else {
-      return null;
+      return;
     }
   };
+
+  //// on click of button to view order, fetch necessary info
   clickHandler = () => {
     fetch(
       `https://noodums-app-api.herokuapp.com/api/v1/orders/${this.props.order.id}`
@@ -73,8 +75,7 @@ class PastOrderFront extends React.Component {
       });
   };
 
-  renderPastOrders = () => {
-    debugger;
+  renderReceipts = () => {
     return this.state.data.items.map(item => {
       return (
         <React.Fragment>
@@ -92,7 +93,7 @@ class PastOrderFront extends React.Component {
       <React.Fragment>
         {this.state.clicked ? (
           <React.Fragment>
-            {this.renderPastOrders()}
+            {this.renderReceipts()}
             <h3>Subtotal: {this.state.subtotal} </h3>
             <h3>Total: {this.state.total} </h3>
             <Button onClick={this.toggleClick}>Back</Button>

@@ -50,11 +50,12 @@ class MenuBackCard extends React.Component {
               >
                 <Header icon="cart plus" content="Add to Cart" />
                 <Modal.Content>
-                  <p>Would you like to add this item to your cart?</p>
+                  <p>Would you like to add this item to your cart? </p>
                 </Modal.Content>
                 <Modal.Actions>
                   <Button color="green" inverted onClick={this.addToCart}>
-                    <Icon name="checkmark" /> Yes!
+                    <Icon name="checkmark" />
+                    Yes!
                   </Button>
                 </Modal.Actions>
               </Modal>

@@ -17,8 +17,6 @@ function ProfleSideBar(props) {
                 name="View/Edit Profile"
                 onClick={props.setActive}
               />
-              {/* <Dropdown.Item icon='edit' text='Change Username/Password' name="Change Username/Password" onClick={props.setActive} />
-                        <Dropdown.Item icon='credit card' text='Add Credit Card' name="Add Credit Card"onClick={props.setActive} /> */}
             </Dropdown.Menu>
           </Dropdown>
 

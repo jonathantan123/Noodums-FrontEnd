@@ -21,26 +21,6 @@ class ProfileContainer extends React.Component {
     });
   };
 
-  addToFaves = () => {
-    fetch(`https://noodums-app-api.herokuapp.com/api/v1/favorites`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        item_id: this.props.item.id,
-        user_id: this.props.user_id
-      })
-    })
-      .then(resp => resp.json())
-      .then(data => {
-        let item = this.props.menuItems.find(item => item.id === data.item_id);
-
-        this.props.addToFavorites(item);
-      });
-  };
-
   render() {
     switch (this.state.activeItem) {
       case "Favorite":

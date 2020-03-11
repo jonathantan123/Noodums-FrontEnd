@@ -11,7 +11,6 @@ function Receipt(props) {
 
   let findQuantity = () => {
     let item = props.data.order_items.find(o => o.item_id === props.item.id);
-
     return item.quantity;
   };
 

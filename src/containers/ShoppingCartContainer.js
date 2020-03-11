@@ -18,8 +18,8 @@ class ShoppingCartContainer extends React.Component {
     return subtotal;
   };
 
-  tax = () => {
-    return this.subTotal().multiply(0.0875);
+  tax = (salesTax = 0.0875) => {
+    return this.subTotal().multiply(salesTax);
   };
 
   total = () => {
@@ -71,5 +71,4 @@ function mapDispatchToProps(dispatch) {
     }
   };
 }
-
 export default connect(msp, mapDispatchToProps)(ShoppingCartContainer);

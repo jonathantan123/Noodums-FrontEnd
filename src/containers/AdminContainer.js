@@ -14,7 +14,7 @@ class AdminContainer extends React.Component {
     submitted: true
   };
 
-  setActive = (e, menuItem) => {
+  setActive = menuItem => {
     this.setState({ activeItem: menuItem.name });
   };
 

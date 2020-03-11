@@ -3,6 +3,8 @@ import { ResponsiveLine } from "@nivo/line";
 import { connect } from "react-redux";
 
 class OrdersChart extends React.Component {
+  //// should move to login
+
   componentDidMount() {
     fetch(`https://noodums-app-api.herokuapp.com/api/v1/orders`)
       .then(resp => resp.json())
